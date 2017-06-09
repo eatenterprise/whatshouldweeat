@@ -1,0 +1,9 @@
+<h1>home</h1>
+
+<%= link_to 'New Round', rounds_path, method: :post %>
+
+<%= form_tag find_key_path, method: :get do %>
+<%= text_field_tag :key %>
+<%= text_field_tag :name %>
+<%= submit_tag 'Submit' %>
+<% end %>
