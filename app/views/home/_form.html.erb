@@ -1,0 +1,21 @@
+<%= form_for @rounds do |f| %>
+	<% if @rounds.errors.any? %>
+		<div>
+			<h2><%= pluralize(@rounds.errors.count, "error") %> prohibited the round from being made:</h2>
+			<ul>
+			<% @rounds.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div>
+		<%= f.label :restaurant, "Choice of Food" %><br>
+		<%= f.text_field :restaurant %> 
+	</div>
+
+	<div>
+		<%= f.submit :submit, "Ready", class: "ready-button" %>
+	</div>
+<% end %>
