@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	background-color: red;
+}
+
+.container {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 20px;
+	color: yellow;
+}
+
+.header {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 60px;
+	color: yellow;
+}
+
+.center {
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instruction {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 30px;
+	color: yellow;
+}
+
+.list-items {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 20px;
+	color: yellow;
+}
