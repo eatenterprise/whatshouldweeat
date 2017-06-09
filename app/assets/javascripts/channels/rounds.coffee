@@ -17,4 +17,8 @@ $(document).on 'turbolinks:load', ->
         # Called when there's incoming data on the websocket for this channel
         if data.name
           $("#users-ul").append("<li>" + data.name + "</li>")
+        if data.restaurants
+          $('body').empty()
+          for i in data.restaurants
+            $('#container').append('<p>' + i.name + '</p>')
 
