@@ -15,12 +15,12 @@ class RoundsController < ApplicationController
     if session[:creator]
       @round = Round.find(params[:id])
     else
-      @round = Round.find_by(key: params[:key])
-
-      @user = User.create(name: params[:name], round: @round)
+      @round = Round.find(params[:id])
+      puts "****************"
+      puts "broadcasting to rounds_channel_#{@round.id}"
+      puts "********************"
       ActionCable.server.broadcast "rounds_channel_#{@round.id}",
-                                  name: @user.name
-
+                                  name: User.find(session[:user_id]).name
     end
   end
 
@@ -29,7 +29,9 @@ class RoundsController < ApplicationController
   end
 
   def find_key
-    round = Round.find_by(key: params[:key])
-    redirect_to round
+    @round = Round.find_by(key: params[:key])
+    @user = User.create(name: params[:name], round_id: @round.id) if @round
+    session[:user_id] = @user.id
+    redirect_to @round
   end
 end
