@@ -1,3 +1,62 @@
 // Place all the styles related to the rounds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+.square {
+  float: left;
+  position: relative;
+  width: 20%;
+  padding-bottom: 10%;
+  margin: 1.66%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.img-1 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/food_picture_01_hd_pictures_167527.jpg')
+}
+
+.img-2 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/delicious_food_04_hd_pictures_167550.jpg')
+}
+
+.img-3 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/food_picture_05_hd_picture_167519.jpg')
+}
+
+.img-4, .img-5 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/food_picture_05_hd_picture_167519.jpg')
+}
+
+.img-6 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/delicious_food_04_hd_pictures_167550.jpg')
+}
+
+.img-7 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/food_picture_01_hd_pictures_167527.jpg')
+}
+
+.img-8 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/food_picture_05_hd_picture_167519.jpg')
+}
+
+.img-9 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/delicious_food_04_hd_pictures_167550.jpg')
+}
+
+.img-10 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/food_picture_01_hd_pictures_167527.jpg')
+}
+
+.img-11 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/food_picture_05_hd_picture_167519.jpg')
+}
+
+.img-12 {
+  background-image: url('http://images.all-free-download.com/images/graphicthumb/delicious_food_04_hd_pictures_167550.jpg')
+}
