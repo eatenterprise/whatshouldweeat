@@ -1,5 +1,4 @@
 class Round < ApplicationRecord
-  before_create :set_key
 
   has_many :restaurants
   has_many :users

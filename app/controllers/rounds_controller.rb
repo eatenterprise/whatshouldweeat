@@ -16,8 +16,8 @@ class RoundsController < ApplicationController
       @round = Round.find(params[:id])
     else
       @round = Round.find(params[:id])
-      ActionCable.server.broadcast "rounds_channel_#{@round.id}",
-                                  name: User.find(session[:user_id]).name
+      # ActionCable.server.broadcast "rounds_channel_#{@round.id}",
+      #                             name: User.find(session[:user_id]).name
     end
   end
 
@@ -35,12 +35,18 @@ class RoundsController < ApplicationController
   def start
     @round = Round.find(params[:round_id])
     @restaurants = @round.restaurants
-    puts "request.xhr #{request.xhr?}"
-    if request.xhr?
-      ActionCable.server.broadcast "rounds_channel_#{@round.id}",
-                                  restaurants: @restaurants
-    else
 
-    end
+    # if request.xhr?
+    #   ActionCable.server.broadcast "rounds_channel_#{@round.id}",
+    #                               restaurants: @restaurants
+    # else
+
+    # end
+  end
+
+  def results
+    @round = Round.find(params[:id])
+    @round.update_attribute(:completed, true)
+
   end
 end

@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   end
   get 'find_key' => 'rounds#find_key'
 
+  get 'nearby_restaurants' => 'restaurants#find_nearby'
+  get 'rounds/:id/results' => 'rounds#results'
+
 end
