@@ -1,4 +1,3 @@
-
 <header>
   <h1 class="title"> WTF should we eat </h1>
 </header>
@@ -7,20 +6,12 @@
   <img src='https://cdn.pixabay.com/photo/2014/04/02/10/39/plate-304113_960_720.png' class="home-image" />
 </div>
 
+<h1>home</h1>
 
+<%= link_to 'New Round', rounds_path, method: :post %>
 
-<%= button_to "Create a Game", rounds_path, {class: "create-button"}  %>
-<!--
-.home-div {
-  position:absolute;
-  z-index:0;
-  left:0;
-  top:10;
-  width:100%;
-  height:90%
-}
-
-.home-image {
-  width: 80%;
-  height: 80%';
-} -->
+<%= form_tag find_key_path, method: :get do %>
+<%= text_field_tag :key %>
+<%= text_field_tag :name %>
+<%= submit_tag 'Submit' %>
+<% end %>
