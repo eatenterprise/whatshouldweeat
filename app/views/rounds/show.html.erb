@@ -1,0 +1,11 @@
+<h1>round show page</h1>
+
+<% if session[:creator] %>
+  <%= @round.key %>
+<% end %>
+
+<div id="secret" data-round-id="<%= @round.id %>"></div>
+
+<ul id="users-ul">
+
+</ul>
