@@ -1,21 +1,16 @@
-<h1 class="center header">What Should We Eat!?</h1>
 
-<h2 class="instruction center">Join a game to decide where to eat</h2>
+<header>
+  <h1 class="title"> WTF should we eat </h1>
+</header>
 
-<div class="container center">
-	<%= label :restaurant, "Choice of Food: " %><br>
-	<%= text_field :restaurant, "Choice of Food: " %> 
+<div class="home-div">
+  <img src='https://cdn.pixabay.com/photo/2014/04/02/10/39/plate-304113_960_720.png' class="home-image" />
 </div>
 
-<div class="options center">
-	<ul>
-		<li class="list-items">Pizza</li>
-		<li class="list-items">Burgers</li>
-		<li class="list-items">Chinese</li>
-		<li class="list-items">BBQ</li>
-		<li class="list-items">Ramen</li>
-		<li class="list-items">Hot Dogs</li>
-		<li class="list-items">Mediterranean</li>
-		<li class="list-items">Random</li>
-	</ul>
-</div>
+<%= link_to 'New Round', rounds_path, method: :post %>
+
+<%= form_tag find_key_path, method: :get do %>
+<%= text_field_tag :key %>
+<%= text_field_tag :name %>
+<%= submit_tag 'Submit' %>
+<% end %>
