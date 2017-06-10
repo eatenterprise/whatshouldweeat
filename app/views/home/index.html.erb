@@ -1,16 +1,1 @@
-
-<header>
-  <h1 class="title"> WTF should we eat </h1>
-</header>
-
-<div class="home-div">
-  <img src='https://cdn.pixabay.com/photo/2014/04/02/10/39/plate-304113_960_720.png' class="home-image" />
-</div>
-
-<%= link_to 'New Round', rounds_path, method: :post %>
-
-<%= form_tag find_key_path, method: :get do %>
-<%= text_field_tag :key %>
-<%= text_field_tag :name %>
-<%= submit_tag 'Submit' %>
-<% end %>
+<%= link_to 'get_restaurants', rounds_path, method: :post %>
