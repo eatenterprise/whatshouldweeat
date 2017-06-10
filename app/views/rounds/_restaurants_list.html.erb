@@ -1,30 +1,7 @@
-<div class="restaurants-container"><!-- 1st row -->
-  <div class="square img-1 hvr-float-shadow"  >
-  </div>
-  <div class="square img-2 hvr-float-shadow">
-  </div>
-  <div class="square img-3 hvr-float-shadow">
-  </div>
-
-  <!-- 2nd row -->
-  <div class="square img-4 hvr-float-shadow">
-  </div>
-  <div class="square img-5 hvr-float-shadow">
-  </div>
-  <div class="square img-6 hvr-float-shadow">
-  </div>
-
-  <!-- 3rd row -->
-  <div class="square img-7 hvr-float-shadow">
-  </div>
-  <div class="square img-8 hvr-float-shadow">
-  </div>
-  <div class="square img-9 hvr-float-shadow">
-  </div>
-
-  <div class="square img-10 hvr-float-shadow">
-  </div>
-  <div class="square img-11 hvr-float-shadow">
-  </div>
-  <div class="square img-12 hvr-float-shadow">
+<div class="restaurants-container" ><!-- 1st row -->
+  <% @round.restaurants.each do |r| %>
+    <div class='restaurant-item voteable square hvr-float-shadow' data-restaurant-id='<%= r.id %>' data-round-id='<%= @round.id %>'>
+      <p><%= r.name %></p>
+    </div>
+  <% end %>
 </div>

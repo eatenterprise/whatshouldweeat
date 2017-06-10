@@ -1,17 +1,14 @@
-class RestaurantsController < ApplicationController
+require 'rest-client'
 
-  def create
-    puts "params are #{params}"
-    @restaurant = Restaurant.new(name: params[:name], round_id: params[:round_id])
-    @restaurant.save
-    puts "restaurant is #{@restaurant}"
+class RestaurantsController < ApplicationController
+  def update
+    restaurant = Restaurant.find(params[:id])
+    votes = restaurant.votes
+    restaurant.update_attribute(:votes, votes + 1)
     if request.xhr?
-      render :json => {
-        restaurant: @restaurant
-      }
+
     else
 
     end
   end
-
 end
