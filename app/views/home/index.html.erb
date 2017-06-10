@@ -8,15 +8,13 @@
 
 
 
+
 <div class="form-container">
   <div class="create-form">
-    <%= form_tag rounds_path, method: :post do |f| %>
+    <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
       <div><%= label_tag "Name:" %></div>
       <div><%= text_field_tag :name %></div>
-      <div> <%= text_field_tag :street %></div>
-      <div><%= text_field_tag :city %></div>
-      <div><%= text_field_tag :state %></div>
-      <div><%= submit_tag "Create Your Game",  :class => "submit-button" %></div
+    <div><%= submit_tag "Create Your Game",  :class => "submit-button" %></div>
       <% end %>
   </div>
   <div class="options">

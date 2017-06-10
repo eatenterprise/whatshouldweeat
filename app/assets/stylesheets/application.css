@@ -255,4 +255,6 @@ span:after {
   padding: 5px;
 }
 
-
+#map {
+  height: 500px;
+}
