@@ -31,7 +31,7 @@ body {
 }
 
 .center {
-	display: -webkit-box;
+	  display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -92,4 +92,30 @@ body {
   border-bottom: 2px solid #000066;
   border-right: 2px solid #000066;
   margin-top: 5px;
+}
+
+.restaurant-name {
+  font-family: Arial;
+  font-size: 20px;
+}
+
+.restaurant-item {
+  background-image:url('https://images-na.ssl-images-amazon.com/images/I/716zQHOEx8L._SY355_.jpg');
+}
+
+.restaurants-container {
+  border: 1px solid black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.restaurant-price {
+  font-family: Arial;
+  font-size: 15px;
+}
+
+.restaurant-rating {
+  font-family: Arial;
+  font-size: 15px;
 }
