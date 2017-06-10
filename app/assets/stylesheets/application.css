@@ -119,7 +119,7 @@ span:after {
 .game-instruction {
 	font-family: 'Press Start 2P', cursive;
 	font-size: 20px;
-	color: yellow;
+	color: white;
 }
 
 
@@ -155,9 +155,30 @@ span:after {
   border-right: 3px solid black;
   padding: 10px;
 }
+
 .options{
   display: flex;
+  color: white;
 }
+
+.arrows {
+  color: yellow;
+  font-size: 200%;
+}
+
+/* animation: blink-animation .5s steps(5,start) infinite;
+  -webkit-animation: blink-animation .5s steps(5,start) infinite;*/
+/*@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}*/
 
 .create-form {
   margin: 5px;
@@ -167,12 +188,13 @@ span:after {
   padding: 10px;
 }
 
-.submit-button{
+.submit-button {
   font: 15px Garamond;
   word-spacing: 2px;
   text-decoration: none;
   background-color: blue;
-  color: yellow;
+  width: 100%;
+  color: white;
   padding: 2px 6px 2px 6px;
   border-top: 2px solid #99ddff;
   border-left: 2px solid #99ddff;
