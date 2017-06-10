@@ -8,9 +8,10 @@
 
 
 
+
 <div class="form-container">
   <div class="create-form">
-  <%= form_tag rounds_path, method: :post do |f| %>
+  <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
     <%= label_tag "Name:" %>
     <%= text_field_tag :name %>
     <%= text_field_tag :street %>

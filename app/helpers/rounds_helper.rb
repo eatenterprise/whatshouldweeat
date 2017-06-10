@@ -1,10 +1,8 @@
 module RoundsHelper
 
   def get_restaurants(round, location)
-    # @location = RestClient.post("https://www.googleapis.com/geolocation/v1/geolocate?key=#{ENV["GOOGLE_LOCATION_TOKEN"]}", nil)
-    # @location = JSON.parse(@location)
-    # @location =  @location["location"]
-    @response = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{@lat},#{@lng}&radius=500&type=restaurant&key=#{ENV["GOOGLE_PLACES_TOKEN"]}")
+    p location
+    @response = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:lat]},#{location[:lng]}&radius=500&type=restaurant&key=#{ENV["GOOGLE_PLACES_TOKEN"]}")
     puts "response is #{@response}"
     @response = JSON.parse(@response)
     @response = @response["results"]
