@@ -1,11 +1,16 @@
 class RoundsController < ApplicationController
 
   def create
+    puts "params be #{params}"
+    puts "********************"
+    p params
+    puts "^^^^^^^^^^^^^^^^^^^"
+    location = {lat: params[:lat], lng: params[:lng]}
     round_key = Round.makeKey
     round = Round.new(key: round_key)
     User.create(name: params[:name], round_id: round.id)
     session[:creator] = true
-    location = helpers.get_location({street: params[:street], city: params[:city], state: params[:state]})
+    # location = helpers.get_location({street: params[:street], city: params[:city], state: params[:state]})
     if location && round.save
       helpers.get_restaurants(round, location)
       redirect_to round
