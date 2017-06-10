@@ -33,5 +33,4 @@ $(document).on 'turbolinks:load', ->
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
       method: 'put'
       success: ->
-        $that.removeClass('voteable')
-
+        $that.css('color': 'red').append("<p class='center'>You Voted</p>")
