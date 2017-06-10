@@ -40,9 +40,9 @@ body {
     justify-content: center;
 }
 
-.instruction {
+.game-instruction {
 	font-family: 'Press Start 2P', cursive;
-	font-size: 30px;
+	font-size: 20px;
 	color: yellow;
 }
 
@@ -50,4 +50,46 @@ body {
 	font-family: 'Press Start 2P', cursive;
 	font-size: 20px;
 	color: yellow;
+}
+
+.form-container {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: yellow;
+    margin-top: 20px;
+    padding: 20px;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.join-form {
+  margin: 5px;
+  text-align: center;
+  width: 10%;
+}
+
+.create-form {
+  margin: 5px;
+  text-align: center;
+  width: 10%;
+}
+
+.submit-button{
+  font: 15px Garamond;
+  word-spacing: 2px;
+  text-decoration: none;
+  background-color: blue;
+  color: yellow;
+  padding: 2px 6px 2px 6px;
+  border-top: 2px solid #99ddff;
+  border-left: 2px solid #99ddff;
+  border-bottom: 2px solid #000066;
+  border-right: 2px solid #000066;
+  margin-top: 5px;
 }

@@ -20,7 +20,7 @@ var bindEventHandlers = function(){
     $.ajax({
       url: path
     })
+  })
 }
-
-$(document).on('turbolinks:load', bindEventHandlers)
-//$(document).ready(bindEventHandlers)
+// $(document).on('turbolinks:load', bindEventHandlers)
+// //$(document).ready(bindEventHandlers)
