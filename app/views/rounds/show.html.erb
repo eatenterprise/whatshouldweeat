@@ -5,8 +5,6 @@
     <% end %>
   </div>
 <%= render "restaurants_list" %>
-
-
   <div id="secret" data-round-id="<%= @round.id %>"></div>
 
   <div class="names-container">
@@ -20,3 +18,7 @@
 </div>
 
 <div class="voted-restaurants"></div>
+
+<% if session[:creator] %>
+  <%= link_to 'Results', "/rounds/#{@round.id}/results" %>
+<% end %>
