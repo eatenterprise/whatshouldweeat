@@ -1,0 +1,24 @@
+<div id='container'>
+  <div>
+    <% if session[:creator] %>
+      <%= @round.key %>
+    <% end %>
+  </div>
+<%= render "restaurants_list" %>
+  <div id="secret" data-round-id="<%= @round.id %>"></div>
+
+  <div class="names-container">
+    <ul id="users-ul">
+     <% @round.users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<div class="voted-restaurants"></div>
+
+<% if session[:creator] %>
+  <%= link_to 'Results', "/rounds/#{@round.id}/results" %>
+<% end %>
