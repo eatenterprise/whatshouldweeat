@@ -119,3 +119,14 @@ body {
   font-family: Arial;
   font-size: 15px;
 }
+
+.lets-eat {
+  margin: auto;
+  width: 27%;
+  padding: 10px;
+}
+
+.results {
+  font-size: 25px;
+  padding: 5px;
+}
