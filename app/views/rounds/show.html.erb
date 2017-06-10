@@ -1,0 +1,28 @@
+<div id='container'>
+
+<%= render "restaurants_list" %>
+
+  <% if session[:creator] %>
+    <%= @round.key %>
+  <% end %>
+
+  <div id="secret" data-round-id="<%= @round.id %>"></div>
+
+  <div class="names-container">
+    <ul id="users-ul">
+     <% @round.users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+    </ul>
+  </div>
+
+  <%#= form_tag round_restaurants_path(@round), method: :post, :id => 'new-restaurant' do %>
+    <%#= text_field_tag :name %>
+    <%#= submit_tag 'Submit', :data => {disable_with: false} %>
+    <!-- <#% end %> -->
+
+  <ul id="restaurant-list">
+
+  </ul>
+
+
