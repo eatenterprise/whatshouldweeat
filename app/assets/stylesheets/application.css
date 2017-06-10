@@ -15,7 +15,7 @@
  */
 
 body {
-	background-color: red;
+	background-color: lightblue;
 }
 
 .container {
@@ -45,6 +45,17 @@ body {
 	font-size: 20px;
 	color: yellow;
 }
+
+/*.square {
+  float: left;
+  position: relative;
+  width: 15%;
+  padding-bottom: 3%;
+  margin: 1%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}*/
 
 .list-items {
 	font-family: 'Press Start 2P', cursive;
@@ -100,14 +111,29 @@ body {
 }
 
 .restaurant-item {
-  background-image:url('https://images-na.ssl-images-amazon.com/images/I/716zQHOEx8L._SY355_.jpg');
+  background-image:url('http://www.freeiconspng.com/uploads/fork-and-knife-22.png');
+}
+
+.restaurant-item {
+  /*border: 2px solid #262626;*/
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 20px;
+  word-wrap: break-word;
+  border-radius: 100%;
+}
+
+
+.restaurant-name {
+  margin-top: 100px;
 }
 
 .restaurants-container {
   border: 1px solid black;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
 }
 
 .restaurant-price {
@@ -130,3 +156,5 @@ body {
   font-size: 25px;
   padding: 5px;
 }
+
+

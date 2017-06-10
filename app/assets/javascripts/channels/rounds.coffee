@@ -30,7 +30,7 @@ $(document).on 'turbolinks:load', ->
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
       method: 'put'
       success: ->
-        $that.hide('voteable')
         $('.voted-restaurants').append($that)
         $('.voted-restaurants').find('.restaurant-item').show()
+        $that.hide('voteable')
 
