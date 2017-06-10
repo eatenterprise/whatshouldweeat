@@ -1,1 +1,5 @@
-
+<% @round.restaurants.each do |r| %>
+  <div class='restaurant-item voteable' data-restaurant-id='<%= r.id %>' data-round-id='<%= @round.id %>'>
+    <p><%= r.name %></p>
+  </div>
+<% end %>

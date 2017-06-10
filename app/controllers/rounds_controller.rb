@@ -5,6 +5,7 @@ class RoundsController < ApplicationController
     round = Round.new(key: round_key)
     session[:creator] = true
     if round.save
+      helpers.get_restaurants(round)
       redirect_to round
     else
       redirect '/'
@@ -16,8 +17,6 @@ class RoundsController < ApplicationController
       @round = Round.find(params[:id])
     else
       @round = Round.find(params[:id])
-      # ActionCable.server.broadcast "rounds_channel_#{@round.id}",
-      #                             name: User.find(session[:user_id]).name
     end
   end
 
@@ -35,18 +34,13 @@ class RoundsController < ApplicationController
   def start
     @round = Round.find(params[:round_id])
     @restaurants = @round.restaurants
-
-    # if request.xhr?
-    #   ActionCable.server.broadcast "rounds_channel_#{@round.id}",
-    #                               restaurants: @restaurants
-    # else
-
-    # end
   end
 
   def results
     @round = Round.find(params[:id])
     @round.update_attribute(:completed, true)
-
+    @winner = @round.restaurants.order(votes: :desc).limit(1)
+    @winner.update_attribute(:winner, true)
   end
+
 end
