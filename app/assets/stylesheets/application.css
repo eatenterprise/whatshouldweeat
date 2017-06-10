@@ -130,3 +130,7 @@ body {
   font-size: 25px;
   padding: 5px;
 }
+
+#map {
+  height: 500px;
+}

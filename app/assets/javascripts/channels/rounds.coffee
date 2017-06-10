@@ -31,3 +31,15 @@ $(document).on 'turbolinks:load', ->
       method: 'put'
       success: ->
         $that.css('color': 'red').append("<p class='center'>You Voted</p>")
+
+  $('#start-form').on 'submit', (e) ->
+    data = {lat: lat, lng: lng}
+    console.log(data)
+    e.preventDefault()
+    $.ajax
+      url: '/rounds',
+      method: 'post',
+      data: data
+      success: ->
+
+
