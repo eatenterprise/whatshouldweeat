@@ -3,6 +3,7 @@ class RoundsController < ApplicationController
   def create
     round_key = Round.makeKey
     round = Round.new(key: round_key)
+    User.create(name: params[:name], round_id: round.id)
     session[:creator] = true
     if round.save
       helpers.get_restaurants(round)
@@ -39,7 +40,7 @@ class RoundsController < ApplicationController
   def results
     @round = Round.find(params[:id])
     @round.update_attribute(:completed, true)
-    @winner = @round.restaurants.order(votes: :desc).limit(1)
+    @winner = @round.restaurants.order(votes: :desc).limit(1).first
     @winner.update_attribute(:winner, true)
   end
 

@@ -23,12 +23,9 @@ $(document).on 'turbolinks:load', ->
             $('#container').append('<p>' + i.name + '</p>')
 
   $(document).on 'click', '.voteable', ->
-    console.log('clicked on ' + $(this))
     $that = $(this)
     restaurantId = $that.attr('data-restaurant-id')
-    console.log('rest id is ' + restaurantId)
     roundId = $that.attr('data-round-id')
-    console.log('round id is ' + roundId)
     $.ajax
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
       method: 'put'
