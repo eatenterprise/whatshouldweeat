@@ -15,7 +15,9 @@
  */
 
 body {
-	background-color: red;
+	background-color: lightblue;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -27,7 +29,81 @@ body {
 .header {
 	font-family: 'Press Start 2P', cursive;
 	font-size: 60px;
-	color: yellow;
+	color: white;
+}
+
+.header {
+  position: relative;
+  margin-top: 100px;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #262626;
+  text-transform: uppercase;
+  letter-spacing: 60px;
+  transition: .5s;
+  width: 50%;
+  border-bottom: 10px solid yellow;
+}
+
+
+.header:before,
+.header:after,
+span:before,
+span:after {
+  content: '';
+  position: absolute;
+  width: 25.5%;
+  height: 100%;
+  background: #262626;
+  z-index: -1;
+  transition: .5s;
+}
+
+.header:before {
+  top: 0;
+  left: -26%;
+}
+
+.header:hover:before {
+  top: 0;
+  left: 0;
+
+}
+
+.header:after {
+  top: 0;
+  right: -26%;
+}
+
+
+.header:hover:after {
+  top: 0;
+  right: 0;
+}
+
+span:before {
+  bottom: -100%;
+  left: 25%;
+}
+
+.header:hover span:before {
+  bottom: 0%;
+  left: 25%;
+}
+
+span:after {
+  top: -100%;
+  left: 50%;
+}
+
+.header:hover span:after {
+  top: 0;
+  left: 50%;
+}
+
+.header:hover {
+  color: yellow;
 }
 
 .center {
@@ -43,8 +119,9 @@ body {
 .game-instruction {
 	font-family: 'Press Start 2P', cursive;
 	font-size: 20px;
-	color: yellow;
+	color: white;
 }
+
 
 .list-items {
 	font-family: 'Press Start 2P', cursive;
@@ -64,6 +141,9 @@ body {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    flex-flow: row wrap;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
     align-items: center;
     justify-content: center;
 }
@@ -71,21 +151,50 @@ body {
 .join-form {
   margin: 5px;
   text-align: center;
-  width: 10%;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  padding: 10px;
 }
+
+.options{
+  display: flex;
+  color: white;
+}
+
+.arrows {
+  color: yellow;
+  font-size: 200%;
+}
+
+/* animation: blink-animation .5s steps(5,start) infinite;
+  -webkit-animation: blink-animation .5s steps(5,start) infinite;*/
+/*@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}*/
 
 .create-form {
   margin: 5px;
   text-align: center;
-  width: 10%;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  padding: 10px;
 }
 
-.submit-button{
+.submit-button {
   font: 15px Garamond;
   word-spacing: 2px;
   text-decoration: none;
   background-color: blue;
-  color: yellow;
+  width: 100%;
+  color: white;
   padding: 2px 6px 2px 6px;
   border-top: 2px solid #99ddff;
   border-left: 2px solid #99ddff;
@@ -100,14 +209,29 @@ body {
 }
 
 .restaurant-item {
-  background-image:url('https://images-na.ssl-images-amazon.com/images/I/716zQHOEx8L._SY355_.jpg');
+  background-image:url('http://www.freeiconspng.com/uploads/fork-and-knife-22.png');
+}
+
+.restaurant-item {
+  /*border: 2px solid #262626;*/
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 20px;
+  word-wrap: break-word;
+  border-radius: 100%;
+}
+
+
+.restaurant-name {
+  margin-top: 100px;
 }
 
 .restaurants-container {
   border: 1px solid black;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
 }
 
 .restaurant-price {

@@ -30,6 +30,9 @@ $(document).on 'turbolinks:load', ->
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
       method: 'put'
       success: ->
+        $('.voted-restaurants').append($that)
+        $('.voted-restaurants').find('.restaurant-item').show()
+        $that.hide('voteable')
         $that.css('color': 'red').append("<p class='center'>You Voted</p>")
 
   $('#start-form').on 'submit', (e) ->
@@ -41,5 +44,4 @@ $(document).on 'turbolinks:load', ->
       method: 'post',
       data: data
       success: ->
-
 
