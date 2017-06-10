@@ -255,6 +255,27 @@ span:after {
   padding: 5px;
 }
 
+@media only screen and (max-height: 700px) and (orientation: portrait) {
+
+ img {
+    max-width: 75%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-height: 700px) and (orientation: landscape) {
+
+img {
+    max-width: 75%;
+    height: auto;
+  }
+
+  body {
+    max-width: 100%;
+  }
+}
+
 #map {
   height: 500px;
 }
+

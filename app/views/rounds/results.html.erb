@@ -1,7 +1,13 @@
 <!-- $that.css('color': 'red').append("<p class='center'>You Voted</p>") -->
-<div class=" form-container">
+<div class="form-container">
 
-  <h1>Here is the WINNER! : <br><span class="center"><%= @winner.name %>, <%= @winner.address %></span></h1>
+  <h1 class="center">Winner:</h1>
+
+  <div class="results">
+    <p><%= @winner.name %>, at</p>
+    <p><%= @winner.address %></p>
+  </div>
+
 
 </div>
 
