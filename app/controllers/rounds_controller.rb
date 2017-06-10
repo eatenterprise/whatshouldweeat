@@ -5,11 +5,12 @@ class RoundsController < ApplicationController
     round = Round.new(key: round_key)
     User.create(name: params[:name], round_id: round.id)
     session[:creator] = true
-    if round.save
-      helpers.get_restaurants(round)
+    location = helpers.get_location({street: params[:street], city: params[:city], state: params[:state]})
+    if location && round.save
+      helpers.get_restaurants(round, location)
       redirect_to round
     else
-      redirect '/'
+      redirect_to '/'
     end
   end
 
