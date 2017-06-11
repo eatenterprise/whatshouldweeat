@@ -1,10 +1,6 @@
 class RoundsController < ApplicationController
 
   def create
-    puts "params be #{params}"
-    puts "********************"
-    p params
-    puts "^^^^^^^^^^^^^^^^^^^"
     location = {lat: params[:lat], lng: params[:lng]}
     round_key = Round.makeKey
     round = Round.new(key: round_key)
@@ -13,18 +9,19 @@ class RoundsController < ApplicationController
     # location = helpers.get_location({street: params[:street], city: params[:city], state: params[:state]})
     if location && round.save
       helpers.get_restaurants(round, location)
-      redirect_to round
+      if round.restaurants.length > 0
+        redirect_to round
+      else
+        @error = "No results!"
+        render 'home/index'
+      end
     else
       redirect_to '/'
     end
   end
 
   def show
-    if session[:creator]
       @round = Round.find(params[:id])
-    else
-      @round = Round.find(params[:id])
-    end
   end
 
 

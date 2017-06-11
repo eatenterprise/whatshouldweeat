@@ -16,16 +16,6 @@ module RoundsHelper
     @lng = @location["results"][0]["geometry"]["location"]["lng"]
     {lat: @lat, lng: @lng}
   end
-  # def get_restaurants(round, location)
-  #   p location
-  #   @response = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:lat]},#{location[:lng]}&radius=500&type=restaurant&key=#{ENV["GOOGLE_PLACES_TOKEN"]}")
-  #   puts "response is #{@response}"
-  #   @response = JSON.parse(@response)
-  #   @response = @response["results"]
-  #   @response.each do |restaurant|
-  #     Restaurant.create(name: restaurant["name"], rating: restaurant["rating"], price: restaurant["price_level"], address: restaurant["vicinity"], round_id: round.id)
-  #   end
-  # end
 
   def valid_location?(location)
     !@location["status"] == "ZERO_RESULTS"
@@ -33,7 +23,7 @@ module RoundsHelper
 
   def additional_results(response, round)
     if response['next_page_token']
-      sleep(2.2)
+      sleep(2.2) # Can't call the API too quickly with a pagetoken query or it returns invalid request
       more_restaurants = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=#{response['next_page_token']}&key=#{ENV["GOOGLE_PLACES_TOKEN"]}")
       more_restaurants = JSON.parse(more_restaurants)
       additional_results(more_restaurants, round)
