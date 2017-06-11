@@ -26,4 +26,20 @@ module RoundsHelper
     !@location["status"] == "ZERO_RESULTS"
   end
 
+  def additional_results(response, round)
+    if response['next_page_token']
+      sleep(2.2)
+      more_restaurants = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=#{response['next_page_token']}&key=#{ENV["GOOGLE_PLACES_TOKEN"]}")
+      more_restaurants = JSON.parse(more_restaurants)
+      additional_results(more_restaurants, round)
+      create_restaurants(more_restaurants, round)
+    end
+  end
+
+  def create_restaurants(json_response, round)
+    response = json_response["results"]
+    response.each do |restaurant|
+      Restaurant.create(name: restaurant["name"], rating: restaurant["rating"], price: restaurant["price_level"], address: restaurant["vicinity"], round_id: round.id)
+    end
+  end
 end
