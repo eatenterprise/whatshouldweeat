@@ -33,7 +33,7 @@ $(document).on 'turbolinks:load', ->
         $('.voted-restaurants').append($that)
         $('.voted-restaurants').find('.restaurant-item').show()
         $that.hide('voteable')
-        $that.css('color': 'red').append("<p class='center'>You Voted</p>")
+        $that.css('color': 'red').append("<p class='center'>You Voted</p>").removeClass('voteable')
 
   $('#start-form').on 'submit', (e) ->
     data = {lat: lat, lng: lng}

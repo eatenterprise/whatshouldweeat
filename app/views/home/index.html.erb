@@ -14,7 +14,7 @@
     <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
       <div><%= label_tag "Name:" %></div>
       <div><%= text_field_tag :name %></div>
-    <div><%= submit_tag "Create Your Game",  :class => "submit-button" %></div>
+    <div><%= submit_tag "Create",  :class => "submit-button" %></div>
       <% end %>
   </div>
   <div class="options">
@@ -23,7 +23,7 @@
   <div class="join-form">
     <%= form_tag find_key_path, method: :get do %>
       <div><%= label_tag "Name:", nil, :class => "name-label" %></div>
-      <div><%= text_field_tag :name %></div>
+      <div id="join-name"><%= text_field_tag :name %></div>
       <div><%= label_tag "Key:", nil, :class => "key-label" %></div>
       <div><%= text_field_tag :key %></div>
       <div><%= submit_tag 'Join', :class => "submit-button" %></div>
