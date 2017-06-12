@@ -32,6 +32,10 @@ gem 'redis', '~> 3.0'
 gem 'rest-client'
 gem 'dotenv'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'
