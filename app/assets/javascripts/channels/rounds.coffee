@@ -6,16 +6,13 @@ $(document).on 'turbolinks:load', ->
       round_id: round.attr('data-round-id')
     },
       connected: ->
-        console.log("connected")
 
       disconnected: ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        console.log("Reached")
         $("body").empty()
         $("body").append(data.body)
-        console.log(data)
 
   $(document).on 'click', '.voteable', ->
     $that = $(this)
@@ -33,7 +30,6 @@ $(document).on 'turbolinks:load', ->
 
   $(document).on 'submit', '#start-form', (e) ->
     data = {lat: lat, lng: lng}
-    console.log(data)
     e.preventDefault()
     $.ajax
       url: '/rounds',
@@ -43,7 +39,6 @@ $(document).on 'turbolinks:load', ->
 
   $("#round-results").click (e) ->
     e.preventDefault()
-    console.log("results clicked")
     roundID = $("#round-results").attr('data-round-id')
     $.ajax
       url: '/rounds/' + roundID + '/results'
