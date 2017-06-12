@@ -1,32 +1,39 @@
 <!-- <div class="home-div">
   <img src='https://cdn.pixabay.com/photo/2014/04/02/10/39/plate-304113_960_720.png' class="home-image" />
 </div> -->
-
-<div class="center game-instruction">
+<!-- <div class="center game-instruction">
   <p>Welcome XXXX either create a new game or join a game by entering the game key.</p>
+</div> -->
+
+
+<div class="index-container">
+  <div class="error">
+      <p><%= @error if @error %></p>
+  </div>
+
+  <div class="form-container">
+    <div class='game-instruction'>
+      <p>Welcome! Click on create to find local restaurants and create a new vote on where to eat. </p>
+    </div>
+    <div class="create-form">
+      <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
+<!--         <div><%= label_tag "Name:" %></div>
+        <div><%= text_field_tag :name %></div> -->
+      <div><%= submit_tag "Create",  :class => "submit-button" %></div>
+        <% end %>
+    </div>
+<!--     <div class="options">
+      <div>Create</div>
+   </div> -->
+    <!-- <div class="join-form">
+      <%= form_tag find_key_path, method: :get do %>
+        <div><%= label_tag "Name:", nil, :class => "name-label" %></div>
+        <div><%= text_field_tag :name %></div>
+        <div><%= label_tag "Key:", nil, :class => "key-label" %></div>
+        <div><%= text_field_tag :key %></div>
+        <div><%= submit_tag 'Join', :class => "submit-button" %></div>
+       <% end %>
+    </div> -->
 </div>
-
-
-
-
-<div class="form-container">
-  <div class="create-form">
-    <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
-      <div><%= label_tag "Name:" %></div>
-      <div><%= text_field_tag :name %></div>
-    <div><%= submit_tag "Create",  :class => "submit-button" %></div>
-      <% end %>
-  </div>
-  <div class="options">
-    <div><span class="arrows">&#9756;</span> Create or Join <span class="arrows">&#9758;</span> </div>
- </div>
-  <div class="join-form">
-    <%= form_tag find_key_path, method: :get do %>
-      <div><%= label_tag "Name:", nil, :class => "name-label" %></div>
-      <div id="join-name"><%= text_field_tag :name %></div>
-      <div><%= label_tag "Key:", nil, :class => "key-label" %></div>
-      <div><%= text_field_tag :key %></div>
-      <div><%= submit_tag 'Join', :class => "submit-button" %></div>
-     <% end %>
-  </div>
+  <div id="map"></div>
 </div>

@@ -22,6 +22,14 @@ body {
   padding: 0;
 }
 
+.index-container{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
 .container {
 	font-family: 'Press Start 2P', cursive;
 	font-size: 20px;
@@ -148,6 +156,7 @@ body {
     border-top: 5px solid white;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 
@@ -190,16 +199,17 @@ body {
 .create-form {
   margin: 5px;
   text-align: center;
-  border-left: 3px solid white;
-  border-right: 3px solid white;
+/*  border-left: 3px solid black;
+  border-right: 3px solid black;*/
   padding: 10px;
 }
 
 .submit-button {
-  font-size: 20px;
   font-family: "Times New Roman", Times, serif;
   color: white;
   letter-spacing: 3px;
+  font-size: 70px;
+  word-spacing: 2px;
   text-decoration: none;
   background-color: black;
   width: 100%;
@@ -352,5 +362,6 @@ img {
 
 #map {
   height: 500px;
+  width: 100%;
 }
 

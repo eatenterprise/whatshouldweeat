@@ -1,6 +1,6 @@
 <div id="game-key">
     <% if session[:creator] %>
-      <p>Game-Key: <span id="key-number"><%= @round.key %></span> </p>
+      <%= @round.vote_url %>
     <% end %>
 </div>
 <div id='container'>
