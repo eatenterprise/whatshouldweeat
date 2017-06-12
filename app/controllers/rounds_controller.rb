@@ -14,6 +14,7 @@ class RoundsController < ApplicationController
         @error = "No results!"
         flash.now[:notice] = 'No results!'
         render 'home/index'
+        #render root, flash.now.alert = "No restaurants in your area"
       end
     else
       redirect_to '/'
