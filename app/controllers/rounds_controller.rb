@@ -1,25 +1,26 @@
 class RoundsController < ApplicationController
 
   def create
+    location = {lat: params[:lat], lng: params[:lng]}
     round_key = Round.makeKey
     round = Round.new(key: round_key)
-    User.create(name: params[:name], round_id: round.id)
+    # User.create(name: params[:name], round_id: round.id)
     session[:creator] = true
-    location = helpers.get_location({street: params[:street], city: params[:city], state: params[:state]})
     if location && round.save
       helpers.get_restaurants(round, location)
-      redirect_to round
+      if round.restaurants.length > 0
+        redirect_to round
+      else
+        @error = "No results!"
+        render 'home/index'
+      end
     else
       redirect_to '/'
     end
   end
 
   def show
-    if session[:creator]
       @round = Round.find(params[:id])
-    else
-      @round = Round.find(params[:id])
-    end
   end
 
 
@@ -28,9 +29,13 @@ class RoundsController < ApplicationController
 
   def find_key
     @round = Round.find_by(key: params[:key])
-    @user = User.create(name: params[:name], round_id: @round.id) if @round
-    session[:user_id] = @user.id
-    redirect_to @round
+    # @user = User.create(name: params[:name], round_id: @round.id) if @round
+    # session[:user_id] = @user.id
+    if @round
+      redirect_to @round
+    else
+      redirect_to '/'
+    end
   end
 
   def start
@@ -43,6 +48,12 @@ class RoundsController < ApplicationController
     @round.update_attribute(:completed, true)
     @winner = @round.restaurants.order(votes: :desc).limit(1).first
     @winner.update_attribute(:winner, true)
+    @winner_page = render 'rounds/results', layout: false, locals: { winner: @winner }
+    puts '################'
+    p @winner_page
+    ActionCable.server.broadcast "rounds_channel_#{@round.id}",
+                                  body: @winner_page
   end
+
 
 end

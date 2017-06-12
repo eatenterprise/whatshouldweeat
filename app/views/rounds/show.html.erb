@@ -1,20 +1,27 @@
-<div id='container'>
+<% if session[:creator] %>
+  <div id="game-key" data-round-id="<%= @round.id %>">
+    <%= @round.vote_url %>
+  </div>
+<% end %>
+
+<div id='container' data-round-id="<%= @round.id %>">
 
 <%= render "restaurants_list" %>
+  <div id="secret" data-round-id="<%= @round.id %>"></div>
 
-<% if session[:creator] %>
-  <%= @round.key %>
-<% end %>
+  <div class="names-container">
+    <ul id="users-ul">
+     <% @round.users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+    </ul>
+  </div>
 
-<div class="names-container">
-  <ul id="users-ul">
-   <% @round.users.each do |user| %>
-    <li><%= user.name %></li>
-  <% end %>
-  </ul>
 </div>
 
-<% if session[:creator] %>
-  <%= link_to 'Results', "/rounds/#{@round.id}/results" %>
-<% end %>
 
+<div id="round-results" data-round-id="<%= @round.id %>">
+  <% if session[:creator] %>
+    <%= link_to 'Results', "/rounds/#{@round.id}/results" %>
+  <% end %>
+</div>
