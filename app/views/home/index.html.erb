@@ -21,15 +21,18 @@
 
   <div class="form-container">
     <div class='game-instruction'>
-      <p>Welcome! Click on create to find local restaurants and create a new vote on where to eat. </p>
+      <p class="hvr-underline-from-center" id="welcome-message">Welcome! To Kafood where indecision on where to eat is solved once and for all. </p>
+      <p class="hvr-underline-from-center">1.) Collect underpants Click on the map to move the pin to the desired location.</p>
+      <p class="hvr-underline-from-center">2.)  ????? Click create and then share the link with other people in your party.</p>
+      <p class="hvr-underline-from-center">3.) Profit. Once everyone has placed their votes click results find out where to eat.</p>
     </div>
     <div class="create-form">
       <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
 <!--         <div><%= label_tag "Name:" %></div>
         <div><%= text_field_tag :name %></div> -->
         <%= select_tag 'radius', "<option>1/2 Mile</option><option>2 Miles</option><option>5 Miles</option><option>10 Miles</option>".html_safe %>
-      <div><%= submit_tag "Create",  :class => "submit-button", data: { disable_with: false } %></div>
-        <% end %>
+      <div><%= submit_tag "Create",  :class => "hvr-grow-shadow submit-button", data: {disable_with: false} %></div>
+      <% end %>
     </div>
 <!--     <div class="options">
       <div>Create</div>

@@ -20,14 +20,20 @@ function initMap() {
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkb6qe0T6dFkQqUtOg7_Wgkv0e7HwSFA4&callback=initMap"
     async defer></script>
 	  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="assets/hover.css" rel="stylesheet" media="all">
+    <link href="/assets/hover.css" rel="stylesheet" media="all">
     <link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet'>
   </head>
 
   <body>
     <header>
       <h1 class="center header"><span class="main-title"> Kafood</span> </h1>
     </header>
+    <h1>
+      <% flash.each do |k, v| %>
+        <div id="<%= k %>"><%= v %></div>
+      <% end %></h1>
     <%= yield %>
   </body>
 </html>
