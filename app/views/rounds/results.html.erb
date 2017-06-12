@@ -1,13 +1,12 @@
-<!-- $that.css('color': 'red').append("<p class='center'>You Voted</p>") -->
-<div class="form-container">
+<h1 class="center" id="winner-title">Winner!!</h1>
 
-  <h1 class="center">Winner:</h1>
+<div class="results-container">
 
-  <div class="results">
-    <p><%= @winner.name %>, at</p>
-    <p><%= @winner.address %></p>
+  <div class="center results">
+    <div id="winner-name"><%= @winner.name %></div>
+    <div id="winner-address"> Located at: <%= @winner.address %></div>
+    <div id="winner-website"><%= link_to "Info", "http://www.google.com#q=#{@winner.name.split.join('+')}" %></div>
   </div>
-
 
 </div>
 

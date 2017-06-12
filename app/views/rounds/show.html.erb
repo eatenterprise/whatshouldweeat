@@ -1,9 +1,10 @@
-<div id='container'>
-  <div>
+<div id="game-key">
     <% if session[:creator] %>
       <%= @round.vote_url %>
     <% end %>
-  </div>
+</div>
+<div id='container'>
+
 <%= render "restaurants_list" %>
   <div id="secret" data-round-id="<%= @round.id %>"></div>
 
@@ -17,9 +18,9 @@
 
 </div>
 
-<div class="voted-restaurants"></div>
 
-<% if session[:creator] %>
-  <%= link_to 'Results', "/rounds/#{@round.id}/results" %>
-<% end %>
-
+<div id="round-results">
+  <% if session[:creator] %>
+    <%= link_to 'Results', "/rounds/#{@round.id}/results" %>
+  <% end %>
+</div>
