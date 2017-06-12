@@ -1,6 +1,6 @@
 module RoundsHelper
   def get_restaurants(round, location)
-    response = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:lat]},#{location[:lng]}&radius=500&type=restaurant&key=#{ENV["GOOGLE_PLACES_TOKEN"]}")
+    response = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{location[:lat]},#{location[:lng]}&radius=#{location[:radius]}&type=restaurant&key=#{ENV["GOOGLE_PLACES_TOKEN"]}")
     response = JSON.parse(response)
     # additional_results(response, round) # Google places API call returns 20 results max, can use this method to get more, but makes things much slower
     create_restaurants(response, round)
