@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:ecef5bff516a9dbe5f8cd598d3df41a2@greeneye.redistogo.com:10803/
   channel_prefix: whatshouldweeat_production
