@@ -6,7 +6,6 @@ class RoundsController < ApplicationController
     round = Round.new(key: round_key)
     # User.create(name: params[:name], round_id: round.id)
     session[:creator] = true
-    # location = helpers.get_location({street: params[:street], city: params[:city], state: params[:state]})
     if location && round.save
       helpers.get_restaurants(round, location)
       if round.restaurants.length > 0
@@ -49,6 +48,16 @@ class RoundsController < ApplicationController
     @round.update_attribute(:completed, true)
     @winner = @round.restaurants.order(votes: :desc).limit(1).first
     @winner.update_attribute(:winner, true)
+    ActionCable.server.broadcast "rounds_channel_#{@round.id}",
+                                  body: @winner.name
+  end
+
+  def group_results
+    @round = Round.find(params[:id])
+    @winner = @round.restaurants.order(votes: :desc).limit(1).first
+    puts "WINNER"
+    p @winner
+    redirect_to '/'
   end
 
 end

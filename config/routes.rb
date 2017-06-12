@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'find_key' => 'rounds#find_key'
   get 'rounds/:id/results' => 'rounds#results'
   get ':key' => 'rounds#find_key'
+  get 'rounds/:id/group_results' => 'rounds#group_results'
 end
