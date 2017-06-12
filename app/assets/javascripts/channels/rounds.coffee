@@ -30,10 +30,11 @@ $(document).on 'turbolinks:load', ->
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
       method: 'put'
       success: ->
-        $('.voted-restaurants').append($that)
-        $('.voted-restaurants').find('.restaurant-item').show()
-        $that.hide('voteable')
-        $that.css('color': 'red').append("<p class='center'>You Voted</p>").removeClass('voteable')
+        $that.css('background-image': "url(http://indiacompliances.com/wp-content/uploads/2017/02/o.png)").removeClass('voteable')
+        $that.find(".restaurant-name").css({'font-size': '40px', 'color': 'white', 'margin-top':'60px'})
+        $that.find(".restaurant-price").hide()
+        $that.find(".restaurant-rating").hide()
+
 
   $('#start-form').on 'submit', (e) ->
     data = {lat: lat, lng: lng}

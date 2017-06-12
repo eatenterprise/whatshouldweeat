@@ -15,7 +15,9 @@
  */
 
 body {
-	background-color: lightblue;
+	background-image: url('http://orizabeats.com/wp-content/uploads/2017/05/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   padding: 0;
 }
@@ -214,18 +216,14 @@ body {
   border: 3px solid yellow;
 }
 
-
-.restaurant-name {
-  font-family: Arial;
-  font-size: 20px;
+.restaurants-container {
+  border: 1px solid black;
+  display: flex;
+  flex-flow: row wrap;
 }
 
-.restaurant-item {
-  background-image:url('http://www.freeiconspng.com/uploads/fork-and-knife-22.png');
-}
 
 .restaurant-item {
-  /*border: 2px solid #262626;*/
   width: 300px;
   height: 300px;
   text-align: center;
@@ -233,27 +231,33 @@ body {
   margin: 20px;
   word-wrap: break-word;
   border-radius: 100%;
-}
+  background-image:url('https://static1.squarespace.com/static/55d5c0e4e4b0be109fd8762f/t/55e8564ce4b02c708d4a99ff/1441289805237/');
+  background-size: 100%;
+ }
+
 
 
 .restaurant-name {
-  margin-top: 100px;
-}
-
-.restaurants-container {
-  border: 1px solid black;
-  display: flex;
-  flex-flow: row wrap;
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-top: 85px;
+  color: white;
 }
 
 .restaurant-price {
   font-family: Arial;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
 }
 
 .restaurant-rating {
   font-family: Arial;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
 }
 
 .lets-eat {
@@ -271,12 +275,17 @@ body {
 
 #winner-name{
   font: 400 100px/1.3 'Lobster Two', Helvetica, sans-serif;
-  color: #2b2b2b;
+  color: #b3e6ff;
   text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
 }
 
 #winner-website {
   margin-top: 5px;
+}
+
+#winner-address {
+  color: #b3e6ff;
+  font-size: 30px;
 }
 
 #winner-title {
@@ -302,7 +311,6 @@ img {
   body {
     max-width: 100%;
   }
-
 }
 
 #map {
