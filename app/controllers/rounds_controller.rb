@@ -1,7 +1,7 @@
 class RoundsController < ApplicationController
 
   def create
-    location = {lat: params[:lat], lng: params[:lng]}
+    location = {lat: params[:lat], lng: params[:lng],radius: params[:radius]}
     round_key = Round.makeKey
     round = Round.new(key: round_key)
     # User.create(name: params[:name], round_id: round.id)
