@@ -1,7 +1,7 @@
 <div class="restaurants-container" ><!-- 1st row -->
   <% @round.restaurants.each do |r| %>
 
-    <div class='restaurant-item voteable hvr-float-shadow' data-restaurant-id='<%= r.id %>' data-round-id='<%= @round.id %>'>
+    <div class='restaurant-item <%= session[r.name] ? 'voted' : 'voteable' %> hvr-float-shadow' data-restaurant-id='<%= r.id %>' data-round-id='<%= @round.id %>'>
       <p class="center restaurant-name"><%= r.name %></p>
       <% if r.price == nil %>
       <p class="center restaurant-price"> Price: N/A </p>

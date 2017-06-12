@@ -18,9 +18,11 @@ $(document).on 'turbolinks:load', ->
     $that = $(this)
     restaurantId = $that.attr('data-restaurant-id')
     roundId = $that.attr('data-round-id')
+    name = $that.find('p').first().text()
     $.ajax
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
-      method: 'put'
+      method: 'put',
+      data: {name: name}
       success: ->
         $that.css('background-image': "url(http://indiacompliances.com/wp-content/uploads/2017/02/o.png)").removeClass('voteable')
         $that.find(".restaurant-name").css({'font-size': '40px', 'color': 'white', 'margin-top':'60px'})
