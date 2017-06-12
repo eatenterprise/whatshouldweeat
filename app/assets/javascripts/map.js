@@ -24,7 +24,6 @@ function placeMarkerAndPanTo(latLng, map) {
   });
   gmarkers.push(marker)
   map.panTo(latLng);
-  console.log(marker.getPosition())
 }
 
 function removeMarkers() {
