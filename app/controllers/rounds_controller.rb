@@ -12,8 +12,8 @@ class RoundsController < ApplicationController
       if round.restaurants.length > 0
         redirect_to round
       else
-        @error = "No results!"
-        render 'home/index'
+       render root, flash.now.alert = "No restaurants in your area"
+
       end
     else
       redirect_to '/'

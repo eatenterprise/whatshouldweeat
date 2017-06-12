@@ -1,4 +1,4 @@
-<div id="game-key">
+<div id="game-url">
     <% if session[:creator] %>
       <%= @round.vote_url %>
     <% end %>
@@ -19,7 +19,7 @@
 </div>
 
 
-<div id="round-results">
+<div id="round-results-btn">
   <% if session[:creator] %>
     <%= link_to 'Results', "/rounds/#{@round.id}/results" %>
   <% end %>
