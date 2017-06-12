@@ -276,7 +276,6 @@ body {
  }
 
 
-
 .restaurant-name {
   font-family: Arial;
   font-size: 25px;
@@ -396,3 +395,20 @@ img {
 
 }
 
+.voted {
+  background-image: url(http://indiacompliances.com/wp-content/uploads/2017/02/o.png)
+}
+
+.voted .restaurant-name {
+  font-size: 40px;
+  color: white;
+  margin-top: 60px;
+}
+
+.voted .restaurant-price {
+  display: none;
+}
+
+.voted .restaurant-rating {
+  display: none;
+}
