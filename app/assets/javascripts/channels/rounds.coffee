@@ -13,15 +13,9 @@ $(document).on 'turbolinks:load', ->
 
       received: (data) ->
         console.log("Reached")
-        $("#container").append("<p>" + data.body + "</p>")
-        data = $("#game-key").attr('data-round-id')
+        $("body").empty()
+        $("body").append(data.body)
         console.log(data)
-        # $.ajax
-        #   url: '/rounds/' + data + '/group_results' ,
-        #   method: 'get',
-        #   data: data
-        #   success: ->
-        # Called when there's incoming data on the websocket for this channel
 
   $(document).on 'click', '.voteable', ->
     $that = $(this)

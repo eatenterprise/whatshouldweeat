@@ -48,16 +48,12 @@ class RoundsController < ApplicationController
     @round.update_attribute(:completed, true)
     @winner = @round.restaurants.order(votes: :desc).limit(1).first
     @winner.update_attribute(:winner, true)
+    @winner_page = render 'rounds/results', layout: false, locals: { winner: @winner }
+    puts '################'
+    p @winner_page
     ActionCable.server.broadcast "rounds_channel_#{@round.id}",
-                                  body: @winner.name
+                                  body: @winner_page
   end
 
-  def group_results
-    @round = Round.find(params[:id])
-    @winner = @round.restaurants.order(votes: :desc).limit(1).first
-    puts "WINNER"
-    p @winner
-    redirect_to '/'
-  end
 
 end
