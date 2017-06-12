@@ -1,12 +1,11 @@
 class RoundsController < ApplicationController
 
   def create
-    location = {lat: params[:lat], lng: params[:lng]}
+    location = {lat: params[:lat], lng: params[:lng],radius: params[:radius]}
     round_key = Round.makeKey
     round = Round.new(key: round_key)
     # User.create(name: params[:name], round_id: round.id)
     session[:creator] = true
-    # location = helpers.get_location({street: params[:street], city: params[:city], state: params[:state]})
     if location && round.save
       helpers.get_restaurants(round, location)
       if round.restaurants.length > 0
@@ -49,6 +48,10 @@ class RoundsController < ApplicationController
     @round.update_attribute(:completed, true)
     @winner = @round.restaurants.order(votes: :desc).limit(1).first
     @winner.update_attribute(:winner, true)
+    @winner_page = render 'rounds/results', layout: false, locals: { winner: @winner }
+    ActionCable.server.broadcast "rounds_channel_#{@round.id}",
+                                  body: @winner_page
   end
+
 
 end

@@ -4,12 +4,20 @@
 <!-- <div class="center game-instruction">
   <p>Welcome XXXX either create a new game or join a game by entering the game key.</p>
 </div> -->
+<div class='error-container'>
+  <% if @error %>
+    <% puts "I was reached, @error is #{@error}" %>
+    <p><%= @error %></p>
+  <% end %>
 
+<!--  <% flash.each do |key, value| %>
+    <% puts "flash key is #{key}, flash value is #{value}" %>
+    <p>test</p>
+    <p><%= value %></p>
+  <% end %> -->
+</div>
 
 <div class="index-container">
-  <div class="error">
-      <p><%#= @error if @error %></p>
-  </div>
 
   <div class="form-container">
     <div class='game-instruction'>
@@ -22,8 +30,9 @@
       <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
 <!--         <div><%= label_tag "Name:" %></div>
         <div><%= text_field_tag :name %></div> -->
+        <%= select_tag 'radius', "<option>1/2 Mile</option><option>2 Miles</option><option>5 Miles</option><option>10 Miles</option>".html_safe %>
       <div><%= submit_tag "Create",  :class => "hvr-grow-shadow submit-button", data: {disable_with: false} %></div>
-        <% end %>
+      <% end %>
     </div>
 <!--     <div class="options">
       <div>Create</div>
