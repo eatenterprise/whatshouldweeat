@@ -44,9 +44,10 @@ $(document).on 'turbolinks:load', ->
       data: data
       success: ->
 
-  $("#round-results").click (e) ->
+  $("#results-link").click (e) ->
+    console.log('link clicked')
     e.preventDefault()
-    roundID = $("#round-results").attr('data-round-id')
+    roundID = $("#round-results-btn").attr('data-round-id')
     $.ajax
       url: '/rounds/' + roundID + '/results'
       method: 'get'
