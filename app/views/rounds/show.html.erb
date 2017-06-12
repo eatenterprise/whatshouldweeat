@@ -19,9 +19,8 @@
 
 </div>
 
-<div id="round-results-btn" data-round-id="<%= @round.id %>">
-
-  <% if session[:creator] %>
+<% if session[:creator] %>
+  <div id="round-results-btn" data-round-id="<%= @round.id %>">
     <%= link_to 'Results', "/rounds/#{@round.id}/results", id: 'results-link' %>
-  <% end %>
-</div>
+  </div>
+<% end %>

@@ -6,13 +6,19 @@ $(document).on 'turbolinks:load', ->
       round_id: round.attr('data-round-id')
     },
       connected: ->
+        @perform("joined")
 
       disconnected: ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        $("body").empty()
-        $("body").append(data.body)
+        if data.users_count?
+          console.log("count reached")
+          console.log(data.users_count)
+        else
+          $("body").empty()
+          $("body").append(data.body)
+
 
   $(document).on 'click', '.voteable', ->
     $that = $(this)
