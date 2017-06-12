@@ -12,6 +12,7 @@ class RoundsController < ApplicationController
         redirect_to round
       else
         @error = "No results!"
+        flash.now[:notice] = 'No results!'
         render 'home/index'
       end
     else

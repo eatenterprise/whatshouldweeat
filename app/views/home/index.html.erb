@@ -10,11 +10,11 @@
     <p><%= @error %></p>
   <% end %>
 
-<!--  <% flash.each do |key, value| %>
+  <% flash.each do |key, value| %>
     <% puts "flash key is #{key}, flash value is #{value}" %>
     <p>test</p>
     <p><%= value %></p>
-  <% end %> -->
+  <% end %>
 </div>
 
 <div class="index-container">
@@ -27,6 +27,7 @@
       <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
 <!--         <div><%= label_tag "Name:" %></div>
         <div><%= text_field_tag :name %></div> -->
+        <%= label_tag "Radius:" %>
         <%= select_tag 'radius', "<option>1/2 Mile</option><option>2 Miles</option><option>5 Miles</option><option>10 Miles</option>".html_safe %>
       <div><%= submit_tag "Create",  :class => "submit-button", data: { disable_with: false } %></div>
         <% end %>

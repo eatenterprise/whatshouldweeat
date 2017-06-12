@@ -36,7 +36,7 @@ $(document).on 'turbolinks:load', ->
       when '2 Miles' then radius = 3200;
       when '5 Miles' then radius = 6400;
       when '10 Miles' then radius = 16000;
-      else radius = 3200
+      else radius = 16000
     data = {lat: lat, lng: lng, radius: radius}
     $.ajax
       url: '/rounds',
