@@ -23,7 +23,7 @@ module RoundsHelper
 
   def additional_results(response, round)
     if response['next_page_token']
-      sleep(2.2) # Can't call the API too quickly with a pagetoken query or it returns invalid request
+      sleep(1.5) # Can't call the API too quickly with a pagetoken query or it returns invalid request
       more_restaurants = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=#{response['next_page_token']}&key=#{ENV["GOOGLE_PLACES_TOKEN"]}")
       more_restaurants = JSON.parse(more_restaurants)
       additional_results(more_restaurants, round)

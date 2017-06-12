@@ -35,7 +35,7 @@ $(document).on 'turbolinks:load', ->
         $that.hide('voteable')
         $that.css('color': 'red').append("<p class='center'>You Voted</p>")
 
-  $('#start-form').on 'submit', (e) ->
+  $(document).on 'submit', '#start-form', (e) ->
     data = {lat: lat, lng: lng}
     console.log(data)
     e.preventDefault()
