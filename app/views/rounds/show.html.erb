@@ -1,7 +1,7 @@
 <div id='container'>
   <div>
     <% if session[:creator] %>
-      <%= @round.key %>
+      <%= @round.vote_url %>
     <% end %>
   </div>
 <%= render "restaurants_list" %>
