@@ -49,8 +49,6 @@ class RoundsController < ApplicationController
     @winner = @round.restaurants.order(votes: :desc).limit(1).first
     @winner.update_attribute(:winner, true)
     @winner_page = render 'rounds/results', layout: false, locals: { winner: @winner }
-    puts '################'
-    p @winner_page
     ActionCable.server.broadcast "rounds_channel_#{@round.id}",
                                   body: @winner_page
   end
