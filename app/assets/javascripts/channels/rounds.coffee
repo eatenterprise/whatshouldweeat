@@ -17,7 +17,7 @@ $(document).on 'turbolinks:load', ->
           updateUserCount("#{data.users_count} users in session")
         else if data.checked
           finishedCount = parseInt($("#finished-users").text())
-          $("#finished-users").text("#{finishedCount + 1} users have finished voting")
+          $("#finished-users").text("#{data.finished_count} users have finished voting")
         else
           $("body").empty()
           $("body").append(data.body)
@@ -53,12 +53,13 @@ $(document).on 'turbolinks:load', ->
 
   $("#finished").click (e) ->
     e.preventDefault()
+    $(this).prop('checked', true)
+    $(this).prop('disabled', true)
     $.ajax
       url: '/rounds/' + roundID + '/finish_voting'
       method: 'put'
 
   $("#results-link").click (e) ->
-    console.log('link clicked')
     e.preventDefault()
     roundID = $("#round-results-btn").attr('data-round-id')
     $.ajax

@@ -8,17 +8,19 @@
 <% end %>
 
 
-<div id='container' data-round-id="<%= @round.id %>">
+<div id='container' data-round-id="<%= @round.id %>" data-user-id="<%= @user.id %>">
   <%= render "restaurants_list" %>
 </div>
 <div id='finish-vote'>
   <%= form_tag({controller: "rounds", action: "finish_voting"}, method: "put", id: 'vote-check')  do %>
   <%= label_tag(:finished, "I'm finished voting") %>
+  <% if !session[:voted].nil? %>
+  <%= check_box_tag 'finished', 'checked', checked: true, disabled: true %>
+  <% else %>
   <%= check_box_tag(:finished) %>
   <% end %>
+  <% end %>
 </div>
-
-
 
 <% if session[:creator] %>
 <div id='creators-dashboard'>

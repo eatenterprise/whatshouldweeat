@@ -1,9 +1,10 @@
 class RoundsController < ApplicationController
+skip_before_action :verify_authenticity_token
 
   def create
     location = {lat: params[:lat], lng: params[:lng],radius: params[:radius]}
     round_key = Round.makeKey
-    round = Round.new(key: round_key)
+    round = Round.new(key: round_key, finished_voting_count: 0)
     # User.create(name: params[:name], round_id: round.id)
     session[:creator] = true
     if location && round.save
@@ -21,6 +22,12 @@ class RoundsController < ApplicationController
   end
 
   def show
+    if session[:user_id].nil?
+      @user = User.create(name: 'abc', round_id: params[:id])
+      session[:user_id] = @user.id
+    else
+      @user = User.find(session[:user_id])
+    end
     @round = Round.find(params[:id])
     if @round.completed
       @winner = @round.restaurants.find_by(winner: :true)
@@ -62,8 +69,18 @@ class RoundsController < ApplicationController
 
   def finish_voting
     @round = Round.find(params[:id])
-    ActionCable.server.broadcast "rounds_channel_#{@round.id}",
-                                  checked: true
+    if session[:voted].nil?
+      puts "session voted was nil"
+      session[:voted] = true
+      count = @round.finished_voting_count
+      @round.update_attribute(:finished_voting_count, count + 1)
+    end
+      puts "session voted was not nil"
+      new_count = @round.finished_voting_count
+      ActionCable.server.broadcast "rounds_channel_#{@round.id}",
+                                    checked: true,
+                                    finished_count: new_count
+
   end
 
 end
