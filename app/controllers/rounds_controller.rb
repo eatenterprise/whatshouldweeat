@@ -4,7 +4,7 @@ skip_before_action :verify_authenticity_token
   def create
     location = {lat: params[:lat], lng: params[:lng], radius: params[:radius]}
     round_key = Round.makeKey
-    round = Round.new(key: round_key, finished_voting_count: 0)
+    round = Round.new(key: round_key)
     # User.create(name: params[:name], round_id: round.id)
     session[:creator] = true
     if location && round.save
