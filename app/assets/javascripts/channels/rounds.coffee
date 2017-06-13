@@ -53,3 +53,4 @@ $(document).on 'turbolinks:load', ->
       method: 'get'
       success: ->
 
+

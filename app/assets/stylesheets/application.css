@@ -226,13 +226,30 @@ body {
   border: 3px solid yellow;
 }
 
-#game-url {
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid white;
+  margin: auto;
+  word-wrap: break-word;
+  font-family: 'Cuprum';
+}
+
+#game-key {
   text-align: center;
   letter-spacing: 2px;
   font-size: 30px;
   color: white;
-  /*border: 2px dashed white;*/
-  margin: auto;
+}
+
+#game-id {
+  color: yellow;
+}
+
+#click-info {
+  font-size: 20px;
 }
 
 #key-number {
@@ -320,27 +337,37 @@ body {
 }
 
 #winner-website {
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
+#winner-website:hover {
+  color: blue;
+}
 #winner-address {
   color: white;
   font-size: 30px;
+  margin-top: 20px;
 }
 
-
-
-@keyframes example {
-    from {background-color: red;}
-    to {background-color: yellow;}
+input {
+  border: 0;
 }
+
 
 #winner-title {
-  color: yellow;
+  color: white;
   font-size: 100px;
   font-family: 'Bungee Shade';
-  animation: blinker .2s linear infinite;
+  animation:  linear infinite;
+  animation-name: winner;
+  animation-duration: 1s;
 }
+
+@keyframes winner{
+    from {color: white;}
+    to {color: yellow;}
+}
+
 
 a:link {
   color: white;
