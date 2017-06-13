@@ -427,7 +427,27 @@ img {
   width: 100%;
   border-radius: 2%;
   border: solid 2px black;
+}
 
+#creators-dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+#finish-vote {
+  display: flex;
+  justify-content: space-around;
+}
+
+#vote-check {
+  display: flex;
+  align-self: center;
+}
+
+#user-info, #finished-users {
+  color: white;
+  align-self: center;
+  font-size: 30px;
 }
 
 .voted {

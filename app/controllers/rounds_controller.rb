@@ -21,13 +21,13 @@ class RoundsController < ApplicationController
   end
 
   def show
-      @round = Round.find(params[:id])
-      if @round.completed
-        @winner = @round.restaurants.find_by(winner: :true)
-        render 'results'
-      else
-        render 'show'
-      end
+    @round = Round.find(params[:id])
+    if @round.completed
+      @winner = @round.restaurants.find_by(winner: :true)
+      render 'results'
+    else
+      render 'show'
+    end
   end
 
 
@@ -55,10 +55,15 @@ class RoundsController < ApplicationController
     @round.update_attribute(:completed, true)
     @winner = @round.restaurants.order(votes: :desc).limit(1).first
     @winner.update_attribute(:winner, true)
-    @winner_page = render 'rounds/results', layout: false, locals: { winner: @winner }
+    @winner_page = render 'rounds/results', locals: { winner: @winner }
     ActionCable.server.broadcast "rounds_channel_#{@round.id}",
                                   body: @winner_page
   end
 
+  def finish_voting
+    @round = Round.find(params[:id])
+    ActionCable.server.broadcast "rounds_channel_#{@round.id}",
+                                  checked: true
+  end
 
 end

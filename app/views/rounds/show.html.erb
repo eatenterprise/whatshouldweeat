@@ -9,23 +9,23 @@
 
 
 <div id='container' data-round-id="<%= @round.id %>">
-
-<%= render "restaurants_list" %>
-  <div id="secret" data-round-id="<%= @round.id %>"></div>
-
-  <div class="names-container">
-    <ul id="users-ul">
-     <% @round.users.each do |user| %>
-      <li><%= user.name %></li>
-    <% end %>
-    </ul>
-  </div>
-
+  <%= render "restaurants_list" %>
 </div>
-
-<div id="round-results-btn" data-round-id="<%= @round.id %>">
-
-  <% if session[:creator] %>
-    <%= link_to 'Results', "/rounds/#{@round.id}/results", id: 'results-link' %>
+<div id='finish-vote'>
+  <%= form_tag({controller: "rounds", action: "finish_voting"}, method: "put", id: 'vote-check')  do %>
+  <%= label_tag(:finished, "I'm finished voting") %>
+  <%= check_box_tag(:finished) %>
   <% end %>
 </div>
+
+
+
+<% if session[:creator] %>
+<div id='creators-dashboard'>
+  <span id='user-info'>0 users in session</span>
+  <span id='finished-users'>0 users have finished voting</span>
+  <div id="round-results-btn" data-round-id="<%= @round.id %>">
+    <%= link_to 'Results', "/rounds/#{@round.id}/results", id: 'results-link' %>
+  </div>
+</div>
+<% end %>
