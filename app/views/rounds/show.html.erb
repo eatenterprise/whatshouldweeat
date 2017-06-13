@@ -2,8 +2,8 @@
 <div class="link-container">
   <div id="game-key" data-round-id="<%= @round.id %>">
     <div>Game Link: <span class="hvr-underline-from-center" id='link'><%= @round.vote_url[0..-5] %><span id="game-id"><%= @round.vote_url[-4..-1] %></span></div></span>
-    <button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
   </div>
+  <button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
 </div>
 <% end %>
 
