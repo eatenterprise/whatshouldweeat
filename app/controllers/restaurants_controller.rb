@@ -1,5 +1,3 @@
-require 'rest-client'
-
 class RestaurantsController < ApplicationController
   def update
     restaurant = Restaurant.find(params[:id])
