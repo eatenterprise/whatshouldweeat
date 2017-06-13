@@ -1,18 +1,27 @@
 $(document).on 'turbolinks:load', ->
   round = $("#container")
+  roundID = round.attr('data-round-id')
   if $('#container').length > 0
     App.rounds = App.cable.subscriptions.create {
       channel: "RoundsChannel"
       round_id: round.attr('data-round-id')
     },
       connected: ->
+        @perform("joined")
 
       disconnected: ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        $("body").empty()
-        $("body").append(data.body)
+        if data.users_count?
+          updateUserCount("#{data.users_count} users in session")
+        else if data.checked
+          finishedCount = parseInt($("#finished-users").text())
+          $("#finished-users").text("#{data.finished_count} users have finished voting")
+        else
+          $("body").empty()
+          $("body").append(data.body)
+
 
   $(document).on 'click', '.voteable', ->
     $that = $(this)
@@ -42,8 +51,15 @@ $(document).on 'turbolinks:load', ->
       data: data
       success: ->
 
+  $("#finished").click (e) ->
+    e.preventDefault()
+    $(this).prop('checked', true)
+    $(this).prop('disabled', true)
+    $.ajax
+      url: '/rounds/' + roundID + '/finish_voting'
+      method: 'put'
+
   $("#results-link").click (e) ->
-    console.log('link clicked')
     e.preventDefault()
     roundID = $("#round-results-btn").attr('data-round-id')
     $.ajax
@@ -51,4 +67,6 @@ $(document).on 'turbolinks:load', ->
       method: 'get'
       success: ->
 
+updateUserCount = (count) ->
+  $("#user-info").text(count)
 
