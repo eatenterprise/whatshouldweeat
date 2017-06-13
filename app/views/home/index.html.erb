@@ -18,7 +18,6 @@
 </div>
 
 <div class="index-container">
-
   <div class="form-container">
     <div class='game-instruction'>
       <p class="hvr-underline-from-center" id="welcome-message">Welcome! To Kafood where indecision on where to eat is solved once and for all. </p>
@@ -51,4 +50,13 @@
     </div> -->
 </div>
   <div id="map"></div>
+  <div class="create-form">
+    <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
+      <%= label_tag "Radius:" %>
+      <%= select_tag 'radius', "<option>1/2 Mile</option><option>2 Miles</option><option>5 Miles</option><option>10 Miles</option>".html_safe %>
+    <div><%= submit_tag "Create",  :class => "hvr-grow-shadow submit-button", data: {disable_with: false} %></div>
+    <% end %>
+  </div>
 </div>
+</div>
+
