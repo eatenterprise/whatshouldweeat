@@ -291,6 +291,7 @@ body {
   border-radius: 100%;
   background-image:url('https://static1.squarespace.com/static/55d5c0e4e4b0be109fd8762f/t/55e8564ce4b02c708d4a99ff/1441289805237/');
   background-size: 100%;
+  cursor: pointer;
  }
 
 
@@ -398,9 +399,7 @@ img {
     height: auto;
   }
 
-  body {
-    max-width: 100%;
-  }
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -411,23 +410,18 @@ img {
 }
 @media only screen and (max-width: 900px) {
   .header{
-    width: 100%;
+    width: 60%;
     margin-top: 12%;
     font-size: 50px;
     letter-spacing: 30px;
   }
-
-  #map{
-    height: 800px;
-  }
 }
 
 #map {
-  height: 600px;
-  width: 100%;
+  height: 500px;
+  width: 60%;
   border-radius: 2%;
   border: solid 2px black;
-}
 
 #creators-dashboard {
   display: flex;
