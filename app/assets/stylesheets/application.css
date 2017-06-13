@@ -21,7 +21,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
-  padding: 0;
+  padding: 0 0 50px 0;
 }
 
 /*Formatting*/
@@ -255,6 +255,11 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
 }
 
 .restaurant-item {
@@ -354,10 +359,23 @@ a:visited {
   border: solid 2px black;
  }
 
+
 /*User Votes*/
+#creators-dashboard-container, #finish-vote {
+  width: 100%;
+  position: fixed;
+  flex-direction: column;
+  bottom: 0px;
+  margin: 0 auto;
+}
+
+#vote-finish {
+  font-size: 45px;
+}
+
 #creators-dashboard {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 #finish-vote {
@@ -370,10 +388,29 @@ a:visited {
   align-self: center;
 }
 
-#user-info, #finished-users {
+#round-results-btn {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: white;
+  border: 2px solid white;
+  width: 290px;
+  margin-right: 5px;
+}
+
+#finished-users {
   color: white;
   align-self: center;
   font-size: 30px;
+  margin-left: 5px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: white;
+  border: 2px solid white;
+  width: 290px;
+  margin-right: 5px;
 }
 
 /*Submitted Vote*/
@@ -471,4 +508,38 @@ img {
 
 }
 
+@media only screen and (max-device-width: 480px) {
+  .restaurant-item {
+    width: 170px;
+    height: 170px;
+    margin: 20px;
+    background-size: 100%;
+    cursor: pointer;
+   }
+
+  .restaurant-name {
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 5px;
+    margin-top: 30px;
+  }
+
+  .voted .restaurant-name {
+    font-size: 24px;
+    margin: 5px;
+    margin-top: 30px;
+  }
+
+  .restaurant-price {
+    font-size: 17px;
+    margin: 10px 0;
+  }
+
+  .restaurant-rating {
+    font-size: 17px;
+    margin: 5px;
+  }
+}
 
