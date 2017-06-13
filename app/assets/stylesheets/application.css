@@ -130,6 +130,7 @@ body {
 	font-size: 25px;
 	color: white;
   letter-spacing: 2px;
+  width: 40%;
 }
 
 #welcome-message {
@@ -138,14 +139,7 @@ body {
 }
 
 
-.list-items {
-	font-family: 'Press Start 2P', cursive;
-	font-size: 20px;
-	color: yellow;
-}
-
 .form-container {
-    font-family: 'Press Start 2P', cursive;
     font-size: 20px;
     color: white;
     margin-top: 20px;
@@ -187,25 +181,10 @@ body {
   font-size: 200%;
 }
 
-/* animation: blink-animation .5s steps(5,start) infinite;
-  -webkit-animation: blink-animation .5s steps(5,start) infinite;*/
-/*@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}*/
 
 .create-form {
   margin: 5px;
   text-align: center;
-/*  border-left: 3px solid black;
-  border-right: 3px solid black;*/
   padding: 10px;
 }
 
@@ -376,42 +355,11 @@ a:visited {
   color: lightblue;
 }
 
-@media only screen and (max-height: 700px) and (orientation: portrait) {
-
- img {
-    max-width: 75%;
-    height: auto;
-  }
-}
-
-@media only screen and (max-height: 700px) and (orientation: landscape) {
-
-img {
-    max-width: 75%;
-    height: auto;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .header{
-    width: 80%;
-    margin-top: 10%
-  }
-}
-@media only screen and (max-width: 900px) {
-  .header{
-    width: 60%;
-    margin-top: 12%;
-    font-size: 50px;
-    letter-spacing: 30px;
-  }
-}
-
 #map {
-  height: 500px;
-  width: 60%;
-  border-radius: 2%;
+  height: 550px;
+  width: 55%;
   border: solid 2px black;
+ }
 
 #creators-dashboard {
   display: flex;
@@ -455,3 +403,47 @@ img {
 .dim {
   opacity: 0.3;
 }
+
+
+@media only screen and (max-height: 700px) and (orientation: portrait) {
+
+ img {
+    max-width: 75%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-height: 700px) and (orientation: landscape) {
+
+img {
+    max-width: 75%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header{
+    width: 80%;
+    margin-top: 10%
+  }
+}
+@media only screen and (max-width: 900px) {
+  .header{
+    width: 60%;
+    margin-top: 12%;
+    font-size: 50px;
+    letter-spacing: 30px;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .game-instruction {
+    width: 100%;
+  }
+
+  #map {
+    width: 70%;
+  }
+}
+
