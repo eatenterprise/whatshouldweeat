@@ -19,7 +19,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
-  padding: 0;
+  padding: 0 0 50px 0;
 }
 
 .index-container{
@@ -246,15 +246,6 @@ body {
 }
 
 
-#round-results-btn {
-  text-align: center;
-  letter-spacing: 2px;
-  font-size: 40px;
-  color: white;
-  border: 2px solid white;
-  margin: auto;
-  width: 20%;
-}
 
 .restaurants-container {
   border: 1px solid black;
@@ -366,9 +357,20 @@ a:visited {
   border: solid 2px black;
  }
 
+#creators-dashboard-container, #finish-vote {
+  width: 100%;
+  position: fixed;
+  flex-direction: column;
+  bottom: 0px;
+  margin: 0 auto;
+}
+
+#vote-finish {
+  font-size: 45px;
+}
 #creators-dashboard {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 #finish-vote {
@@ -381,10 +383,29 @@ a:visited {
   align-self: center;
 }
 
-#user-info, #finished-users {
+#round-results-btn {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: white;
+  border: 2px solid white;
+  width: 290px;
+  margin-right: 5px;
+}
+
+#finished-users {
   color: white;
   align-self: center;
   font-size: 30px;
+  margin-left: 5px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: white;
+  border: 2px solid white;
+  width: 290px;
+  margin-right: 5px;
 }
 
 .voted {
