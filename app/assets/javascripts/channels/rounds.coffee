@@ -13,11 +13,8 @@ $(document).on 'turbolinks:load', ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        if data.users_count?
-          updateUserCount("#{data.users_count} users in session")
-        else if data.checked
-          finishedCount = parseInt($("#finished-users").text())
-          $("#finished-users").text("#{data.finished_count} users have finished voting")
+        if data.total_users?
+          $("#finished-users").text("#{data.finished_count}/#{data.total_users} voted")
         else
           $("body").empty()
           $("body").append(data.body)
@@ -72,8 +69,5 @@ $(document).on 'turbolinks:load', ->
     $("#step3").removeClass("dim")
     $("#radius-div").addClass("dim")
     $("#create-button").removeClass("dim")
-
-updateUserCount = (count) ->
-  $("#user-info").text(count)
 
 

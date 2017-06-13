@@ -263,15 +263,6 @@ body {
   display: flex;
 }
 
-#round-results-btn {
-  text-align: center;
-  letter-spacing: 2px;
-  font-size: 40px;
-  color: white;
-  border: 2px solid white;
-  margin: auto;
-  width: 20%;
-}
 
 .restaurants-container {
   border: 1px solid black;
@@ -429,9 +420,17 @@ img {
   border: solid 2px black;
 }
 
+#creators-dashboard-container {
+  width: 100%;
+  position: fixed;
+  flex-direction: column;
+  bottom: 0px;
+  margin: 0 auto;
+}
+
 #creators-dashboard {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 #finish-vote {
@@ -444,10 +443,29 @@ img {
   align-self: center;
 }
 
-#user-info, #finished-users {
+#round-results-btn {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: white;
+  border: 2px solid white;
+  width: 290px;
+  margin-right: 5px;
+}
+
+#finished-users {
   color: white;
   align-self: center;
   font-size: 30px;
+  margin-left: 5px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: white;
+  border: 2px solid white;
+  width: 290px;
+  margin-right: 5px;
 }
 
 .voted {

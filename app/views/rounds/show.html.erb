@@ -22,12 +22,13 @@
   <% end %>
 </div>
 
-<% if session[:creator] %>
+
+<div id='creators-dashboard-container'>
 <div id='creators-dashboard'>
-  <span id='user-info'>0 users in session</span>
-  <span id='finished-users'>0 users have finished voting</span>
-  <div id="round-results-btn" data-round-id="<%= @round.id %>">
+  <div id="round-results-btn" class="submit-button" data-round-id="<%= @round.id %>">
     <%= link_to 'Results', "/rounds/#{@round.id}/results", id: 'results-link' %>
   </div>
+  <span id='finished-users' class="submit-button">0</span>
 </div>
-<% end %>
+</div>
+
