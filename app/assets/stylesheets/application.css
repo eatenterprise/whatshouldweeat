@@ -395,6 +395,21 @@ a:visited {
   display: none;
 }
 
+/*Dropdown Styling*/
+
+.styled-select {
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+   background-color: #000;
+   border: 1px solid white;
+   margin: auto;
+   margin-bottom: 4px;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
 .dim {
   opacity: 0.3;
 }
