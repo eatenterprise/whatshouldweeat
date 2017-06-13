@@ -2,7 +2,7 @@ class RoundsController < ApplicationController
 skip_before_action :verify_authenticity_token
 
   def create
-    location = {lat: params[:lat], lng: params[:lng],radius: params[:radius]}
+    location = {lat: params[:lat], lng: params[:lng], radius: params[:radius]}
     round_key = Round.makeKey
     round = Round.new(key: round_key, finished_voting_count: 0)
     # User.create(name: params[:name], round_id: round.id)

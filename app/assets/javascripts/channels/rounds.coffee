@@ -67,6 +67,13 @@ $(document).on 'turbolinks:load', ->
       method: 'get'
       success: ->
 
+  $("#radius").change ->
+    $("#step2").addClass("dim")
+    $("#step3").removeClass("dim")
+    $("#radius-div").addClass("dim")
+    $("#create-button").removeClass("dim")
+
 updateUserCount = (count) ->
   $("#user-info").text(count)
+
 

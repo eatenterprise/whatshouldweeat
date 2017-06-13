@@ -11,8 +11,9 @@ function initMap() {
   map.addListener('click', function(e) {
     removeMarkers();
     placeMarkerAndPanTo(e.latLng, map);
-    lat = e.latLng.lat().toFixed(6)
-    lng = e.latLng.lng().toFixed(6)
+    lat = e.latLng.lat().toFixed(6);
+    lng = e.latLng.lng().toFixed(6);
+    instructionsOpacity();
   });
 }
 
@@ -30,4 +31,10 @@ function removeMarkers() {
   for (i = 0; i < gmarkers.length; i++) {
     gmarkers[i].setMap(null)
   }
+}
+
+function instructionsOpacity() {
+  $("#step1").addClass("dim")
+  $("#step2").removeClass("dim")
+  $("#radius-div").removeClass("dim")
 }
