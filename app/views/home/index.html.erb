@@ -25,10 +25,9 @@
       <p class="hvr-underline-from-center dim" id="step2">2.) Choose the radius of your search</p>
       <p class="hvr-underline-from-center dim" id="step3">3.)  ????? Click create and then share the link with other people in your party. Once everyone has placed their votes click results find out where to eat.</p>
     </div>
-    <div class="create-form">
+    <div id="map"></div>
+        <div class="create-form">
       <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
-<!--         <div><%= label_tag "Name:" %></div>
-        <div><%= text_field_tag :name %></div> -->
         <div class="dim" id="radius-div">
         <%= label_tag "Radius:" %>
         <%= select_tag 'radius', "<option>Select radius</option><option>1/2 Mile</option><option>2 Miles</option><option>5 Miles</option><option>10 Miles</option>".html_safe %>
@@ -36,27 +35,8 @@
         <%= submit_tag "Create", :class => "hvr-grow-shadow submit-button dim", :id => "create-button", data: {disable_with: false} %>
       <% end %>
     </div>
-<!--     <div class="options">
-      <div>Create</div>
-   </div> -->
-    <!-- <div class="join-form">
-      <%= form_tag find_key_path, method: :get do %>
-        <div><%= label_tag "Name:", nil, :class => "name-label" %></div>
-        <div><%= text_field_tag :name %></div>
-        <div><%= label_tag "Key:", nil, :class => "key-label" %></div>
-        <div><%= text_field_tag :key %></div>
-        <div><%= submit_tag 'Join', :class => "submit-button" %></div>
-       <% end %>
-    </div> -->
+
+   </div>
 </div>
-  <div id="map"></div>
-  <div class="create-form">
-    <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
-      <%= label_tag "Radius:" %>
-      <%= select_tag 'radius', "<option>1/2 Mile</option><option>2 Miles</option><option>5 Miles</option><option>10 Miles</option>".html_safe %>
-    <div><%= submit_tag "Create",  :class => "hvr-grow-shadow submit-button", data: {disable_with: false} %></div>
-    <% end %>
-  </div>
-</div>
-</div>
+
 
