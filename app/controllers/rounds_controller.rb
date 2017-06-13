@@ -11,8 +11,9 @@ class RoundsController < ApplicationController
       if round.restaurants.length > 0
         redirect_to round
       else
-       render root, flash.now.alert = "No restaurants in your area"
-
+        @error = "No results!"
+        flash.now[:notice] = 'No results!'
+        render 'home/index'
       end
     else
       redirect_to '/'
@@ -20,11 +21,13 @@ class RoundsController < ApplicationController
   end
 
   def show
-    if session[:joined].nil?
-      session[:joined] = true
-    else
-    end
     @round = Round.find(params[:id])
+    if @round.completed
+      @winner = @round.restaurants.find_by(winner: :true)
+      render 'results'
+    else
+      render 'show'
+    end
   end
 
 

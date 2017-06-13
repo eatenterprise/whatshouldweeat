@@ -27,15 +27,13 @@ $(document).on 'turbolinks:load', ->
     $that = $(this)
     restaurantId = $that.attr('data-restaurant-id')
     roundId = $that.attr('data-round-id')
+    name = $that.find('p').first().text()
     $.ajax
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
-      method: 'put'
+      method: 'put',
+      data: {name: name}
       success: ->
-        $that.css('background-image': "url(http://indiacompliances.com/wp-content/uploads/2017/02/o.png)").removeClass('voteable')
-        $that.find(".restaurant-name").css({'font-size': '40px', 'color': 'white', 'margin-top':'60px'})
-        $that.find(".restaurant-price").hide()
-        $that.find(".restaurant-rating").hide()
-
+        $that.removeClass('voteable').addClass('voted')
 
   $(document).on 'submit', '#start-form', (e) ->
     e.preventDefault()
@@ -45,7 +43,7 @@ $(document).on 'turbolinks:load', ->
       when '2 Miles' then radius = 3200;
       when '5 Miles' then radius = 6400;
       when '10 Miles' then radius = 16000;
-      else radius = 3200
+      else radius = 16000
     data = {lat: lat, lng: lng, radius: radius}
     $.ajax
       url: '/rounds',
@@ -70,3 +68,4 @@ $(document).on 'turbolinks:load', ->
 
 updateUserCount = (count) ->
   $("#user-info").text(count)
+

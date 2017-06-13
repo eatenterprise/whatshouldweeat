@@ -3,13 +3,10 @@
 <div class="results-container">
 
   <div class="center results">
-    <div id="winner-name"><%= @winner.name %></div>
-    <div id="winner-address"> Located at: <%= @winner.address %></div>
+    <div class="hvr-grow-shadow" id="winner-name"><%= @winner.name %></div>
+    <div class="hvr-underline-from-center" id="winner-address"> Located at: <%= @winner.address %></div>
     <div id="winner-website"><%= link_to "Info", "http://www.google.com#q=#{@winner.name.split.join('+')}" %></div>
   </div>
 
 </div>
 
-<div class="lets-eat">
-  <img src="https://pbs.twimg.com/profile_images/660629858414804993/odAIW6hE.png">
-</div>
