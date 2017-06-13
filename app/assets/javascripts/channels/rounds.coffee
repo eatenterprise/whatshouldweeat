@@ -15,6 +15,7 @@ $(document).on 'turbolinks:load', ->
         if data.users_count?
           console.log("count reached")
           console.log(data.users_count)
+          updateUserCount(data.users_count)
         else
           $("body").empty()
           $("body").append(data.body)
@@ -59,3 +60,5 @@ $(document).on 'turbolinks:load', ->
       method: 'get'
       success: ->
 
+updateUserCount = (count) ->
+  $("#user-info").text(count)

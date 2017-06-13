@@ -9,18 +9,13 @@
 <%= render "restaurants_list" %>
   <div id="secret" data-round-id="<%= @round.id %>"></div>
 
-  <div class="names-container">
-    <ul id="users-ul">
-     <% @round.users.each do |user| %>
-      <li><%= user.name %></li>
-    <% end %>
-    </ul>
-  </div>
-
 </div>
 
 <% if session[:creator] %>
+<div id='creators-dashboard'>
+  <span id='user-info'></span>
   <div id="round-results-btn" data-round-id="<%= @round.id %>">
     <%= link_to 'Results', "/rounds/#{@round.id}/results", id: 'results-link' %>
   </div>
+</div>
 <% end %>

@@ -393,6 +393,15 @@ img {
   width: 100%;
   border-radius: 2%;
   border: solid 2px black;
+}
 
+#creators-dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+#user-info {
+  align-self: center;
+  font-size: 30px;
 }
 
