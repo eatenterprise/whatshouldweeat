@@ -278,26 +278,26 @@ body {
  }
 
 .restaurant-name {
-  font-family: Arial;
+  font-family: 'Cuprum';
   font-size: 25px;
   font-weight: bold;
   letter-spacing: 3px;
-  margin-top: 85px;
+  margin-top: 80px;
   color: white;
 }
 
 .restaurant-price {
-  font-family: Arial;
-  font-size: 17px;
+  font-family: 'Bungee Shade';
+  font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: #66ff66;
 }
 
 .restaurant-rating {
-  font-family: Arial;
-  font-size: 17px;
+  font-family: 'Bungee Shade';
+  font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: #ff1a1a;
 }
 
 .lets-eat {
@@ -340,6 +340,10 @@ body {
   animation:  linear infinite;
   animation-name: winner;
   animation-duration: 1s;
+}
+
+#rating {
+  color: red;
 }
 
 @keyframes winner{

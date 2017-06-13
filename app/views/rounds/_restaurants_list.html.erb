@@ -2,13 +2,9 @@
   <% @round.restaurants.each do |r| %>
 
     <div class='restaurant-item <%= session[r.name] ? 'voted' : 'voteable' %> hvr-float-shadow' data-restaurant-id='<%= r.id %>' data-round-id='<%= @round.id %>'>
-      <p class="center restaurant-name"><%= r.name %></p>
-      <% if r.price == nil %>
-      <p class="center restaurant-price"> Price: N/A </p>
-      <% else %>
-      <p class="center restaurant-price">Price: <%= r.price %> / 5</p>
-      <% end %>
-      <p class="center restaurant-rating">Rating: <%= r.rating %> / 5</p>
+      <p class="center restaurant-name"><%= r.name %> </p>
+      <p class="center restaurant-price"> <%= price_to_sign(r.price) %></p>
+      <p class="center restaurant-rating"> <%= rating_to_star(r.rating)  %></p>
     </div>
   <% end %>
 </div>
