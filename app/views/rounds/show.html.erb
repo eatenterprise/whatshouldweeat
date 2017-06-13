@@ -11,18 +11,20 @@
 <div id='container' data-round-id="<%= @round.id %>" data-user-id="<%= @user.id %>">
   <%= render "restaurants_list" %>
 </div>
-<div id='finish-vote'>
-  <%= form_tag({controller: "rounds", action: "finish_voting"}, method: "put", id: 'vote-check')  do %>
-  <%= label_tag(:finished, "I'm finished voting") %>
-  <% if !session[:voted].nil? %>
-  <%= check_box_tag 'finished', 'checked', checked: true, disabled: true %>
-  <% else %>
-  <%= check_box_tag(:finished) %>
-  <% end %>
-  <% end %>
-</div>
 
+<% if !session[:creator] %>
+  <div id='finish-vote'>
+    <%= form_tag({controller: "rounds", action: "finish_voting"}, method: "put", id: 'vote-check') do %>
+    <% if !session[:voted].nil? %>
+    <%= submit_tag 'click here when finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow', disabled: true %>
+    <% else %>
+    <%= submit_tag 'click here when finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow' %>
+    <% end %>
+    <% end %>
+  </div>
+<% end %>
 
+<% if session[:creator] %>
 <div id='creators-dashboard-container'>
 <div id='creators-dashboard'>
   <div id="round-results-btn" class="submit-button" data-round-id="<%= @round.id %>">
@@ -31,4 +33,4 @@
   <span id='finished-users' class="submit-button">0</span>
 </div>
 </div>
-
+<% end %>

@@ -19,7 +19,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
-  padding: 0;
+  padding: 0 0 50px 0;
 }
 
 .index-container{
@@ -420,7 +420,7 @@ img {
   border: solid 2px black;
 }
 
-#creators-dashboard-container {
+#creators-dashboard-container, #finish-vote {
   width: 100%;
   position: fixed;
   flex-direction: column;
@@ -428,6 +428,9 @@ img {
   margin: 0 auto;
 }
 
+#vote-finish {
+  font-size: 45px;
+}
 #creators-dashboard {
   display: flex;
   justify-content: center;

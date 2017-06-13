@@ -48,13 +48,21 @@ $(document).on 'turbolinks:load', ->
       data: data
       success: ->
 
-  $("#finished").click (e) ->
+  $("#vote-finish").click (e) ->
+    console.log("Why is this even working")
     e.preventDefault()
-    $(this).prop('checked', true)
-    $(this).prop('disabled', true)
     $.ajax
       url: '/rounds/' + roundID + '/finish_voting'
       method: 'put'
+      success: ->
+        $("#vote-finish").prop('value', "Votes submitted!")
+        $("#vote-finish").removeClass('hvr-grow-shadow').css('background-color', 'green')
+
+
+
+
+
+
 
   $("#results-link").click (e) ->
     e.preventDefault()

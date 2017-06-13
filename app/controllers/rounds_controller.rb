@@ -76,6 +76,7 @@ skip_before_action :verify_authenticity_token
     end
       new_count = @round.finished_voting_count
       total_users = @round.users.count
+      puts "reached asdf sdaf dsfoh asdlfjb sadlfjb asdf sadf"
       ActionCable.server.broadcast "rounds_channel_#{@round.id}",
                                     checked: true,
                                     finished_count: new_count,
