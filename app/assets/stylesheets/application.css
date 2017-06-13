@@ -261,6 +261,11 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
 }
 
 
@@ -447,3 +452,37 @@ img {
   }
 }
 
+@media only screen and (max-device-width: 480px) {
+  .restaurant-item {
+    width: 170px;
+    height: 170px;
+    margin: 20px;
+    background-size: 100%;
+    cursor: pointer;
+   }
+
+  .restaurant-name {
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 5px;
+    margin-top: 30px;
+  }
+
+  .voted .restaurant-name {
+    font-size: 24px;
+    margin: 5px;
+    margin-top: 30px;
+  }
+
+  .restaurant-price {
+    font-size: 17px;
+    margin: 10px 0;
+  }
+
+  .restaurant-rating {
+    font-size: 17px;
+    margin: 5px;
+  }
+}

@@ -6,9 +6,9 @@
       <% if r.price == nil %>
       <p class="center restaurant-price"> Price: N/A </p>
       <% else %>
-      <p class="center restaurant-price">Price: <%= r.price %> / 5</p>
+      <p class="center restaurant-price"><%= '$' * r.price.to_i %></p>
       <% end %>
-      <p class="center restaurant-rating">Rating: <%= r.rating %> / 5</p>
+      <p class="center restaurant-rating"><%= '*' * r.rating.to_i %></p>
     </div>
   <% end %>
 </div>
