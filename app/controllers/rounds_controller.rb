@@ -20,7 +20,11 @@ class RoundsController < ApplicationController
   end
 
   def show
-      @round = Round.find(params[:id])
+    if session[:joined].nil?
+      session[:joined] = true
+    else
+    end
+    @round = Round.find(params[:id])
   end
 
 
@@ -53,5 +57,10 @@ class RoundsController < ApplicationController
                                   body: @winner_page
   end
 
+  def finish_voting
+    @round = Round.find(params[:id])
+    ActionCable.server.broadcast "rounds_channel_#{@round.id}",
+                                  checked: true
+  end
 
 end

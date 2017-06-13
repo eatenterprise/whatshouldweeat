@@ -1,5 +1,6 @@
 $(document).on 'turbolinks:load', ->
   round = $("#container")
+  roundID = round.attr('data-round-id')
   if $('#container').length > 0
     App.rounds = App.cable.subscriptions.create {
       channel: "RoundsChannel"
@@ -13,9 +14,10 @@ $(document).on 'turbolinks:load', ->
 
       received: (data) ->
         if data.users_count?
-          console.log("count reached")
-          console.log(data.users_count)
-          updateUserCount(data.users_count)
+          updateUserCount("#{data.users_count} users in session")
+        else if data.checked
+          finishedCount = parseInt($("#finished-users").text())
+          $("#finished-users").text("#{finishedCount + 1} users have finished voting")
         else
           $("body").empty()
           $("body").append(data.body)
@@ -50,6 +52,12 @@ $(document).on 'turbolinks:load', ->
       method: 'post',
       data: data
       success: ->
+
+  $("#finished").click (e) ->
+    e.preventDefault()
+    $.ajax
+      url: '/rounds/' + roundID + '/finish_voting'
+      method: 'put'
 
   $("#results-link").click (e) ->
     console.log('link clicked')

@@ -400,7 +400,18 @@ img {
   flex-direction: column;
 }
 
-#user-info {
+#finish-vote {
+  display: flex;
+  justify-content: space-around;
+}
+
+#vote-check {
+  display: flex;
+  align-self: center;
+}
+
+#user-info, #finished-users {
+  color: white;
   align-self: center;
   font-size: 30px;
 }
