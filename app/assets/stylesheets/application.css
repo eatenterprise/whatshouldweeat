@@ -461,3 +461,7 @@ img {
 .voted .restaurant-rating {
   display: none;
 }
+
+.dim {
+  opacity: 0.3;
+}
