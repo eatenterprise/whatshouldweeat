@@ -1,11 +1,12 @@
 <% if session[:creator] %>
 <div class="link-container">
   <div id="game-key" data-round-id="<%= @round.id %>">
-    <p>Game Link: <span id='link'><%= @round.vote_url[0..-5] %><span id="game-id"><%= @round.vote_url[-4..-1] %></span></p></span>
-    <button onclick="copyToClipboard('#link')">Copy Link</button>
+    <div>Game Link: <span class="hvr-underline-from-center" id='link'><%= @round.vote_url[0..-5] %><span id="game-id"><%= @round.vote_url[-4..-1] %></span></div></span>
+    <button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
   </div>
-<% end %>
 </div>
+<% end %>
+
 
 <div id='container' data-round-id="<%= @round.id %>">
 
