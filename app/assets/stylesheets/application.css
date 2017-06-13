@@ -541,5 +541,8 @@ img {
     font-size: 17px;
     margin: 5px;
   }
-}
 
+  #map {
+    width: 105%;
+  }
+}
