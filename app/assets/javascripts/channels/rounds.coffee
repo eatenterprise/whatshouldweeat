@@ -24,11 +24,7 @@ $(document).on 'turbolinks:load', ->
       method: 'put',
       data: {name: name}
       success: ->
-        $that.css('background-image': "url(http://indiacompliances.com/wp-content/uploads/2017/02/o.png)").removeClass('voteable')
-        $that.find(".restaurant-name").css({'font-size': '40px', 'color': 'white', 'margin-top':'60px'})
-        $that.find(".restaurant-price").hide()
-        $that.find(".restaurant-rating").hide()
-
+        $that.removeClass('voteable').addClass('voted')
 
   $(document).on 'submit', '#start-form', (e) ->
     e.preventDefault()
