@@ -17,9 +17,9 @@
   height: 100%;
 }*/
 
-body, html {
+/*body, html {
   min-height: 100%;
-}
+}*/
 
 /*Body Set*/
 body {
@@ -503,6 +503,7 @@ img {
     margin-top: 10%;
   }
 }
+
 @media only screen and (max-width: 900px) {
   .header{
     width: 60%;
