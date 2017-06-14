@@ -544,10 +544,10 @@ a:visited {
     letter-spacing: 30px;
   }
 
-  .form-container {
+ /* .form-container {
     display: flex;
     flex-flow: column-reverse;
-  }
+  }*/
 
   .game-instruction {
     width: 100%;
@@ -574,10 +574,10 @@ a:visited {
 }
 
 @media only screen and (max-device-width: 480px) {
-  .form-container {
+/*  .form-container {
     display: flex;
     flex-direction: column;
-  }
+  }*/
 
   .restaurant-item {
     width: 170px;
