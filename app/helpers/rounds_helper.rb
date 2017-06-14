@@ -6,16 +6,16 @@ module RoundsHelper
     create_restaurants(response, round)
   end
 
-  def get_location(location)
-    @location = RestClient.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{location[:street]},+#{location[:city]},+#{location[:state]}&key=#{ENV["GOOGLE_GEOCODING_TOKEN"]}")
-    @location = JSON.parse(@location)
-    if @location["status"] == "ZERO_RESULTS"
-      return nil
-    end
-    @lat = @location["results"][0]["geometry"]["location"]["lat"]
-    @lng = @location["results"][0]["geometry"]["location"]["lng"]
-    {lat: @lat, lng: @lng}
-  end
+  # def get_location(location)
+  #   @location = RestClient.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{location[:street]},+#{location[:city]},+#{location[:state]}&key=#{ENV["GOOGLE_GEOCODING_TOKEN"]}")
+  #   @location = JSON.parse(@location)
+  #   if @location["status"] == "ZERO_RESULTS"
+  #     return nil
+  #   end
+  #   @lat = @location["results"][0]["geometry"]["location"]["lat"]
+  #   @lng = @location["results"][0]["geometry"]["location"]["lng"]
+  #   {lat: @lat, lng: @lng}
+  # end
 
   def valid_location?(location)
     !@location["status"] == "ZERO_RESULTS"
