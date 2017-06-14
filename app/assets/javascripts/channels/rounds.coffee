@@ -24,7 +24,7 @@ $(document).on 'turbolinks:load', ->
     $that = $(this)
     restaurantId = $that.attr('data-restaurant-id')
     roundId = $that.attr('data-round-id')
-    name = $that.find('p').first().text()
+    name = $that.find('div').first().text()
     $.ajax
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
       method: 'put',
