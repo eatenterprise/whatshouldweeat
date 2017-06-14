@@ -14,7 +14,7 @@ $(document).on 'turbolinks:load', ->
 
       received: (data) ->
         if data.total_users?
-          $("#finished-users").text("#{data.finished_count}/#{data.total_users} voted")
+          $("#finished-users").text("#{data.finished_count}/#{data.total_users - 1} voted")
         else
           $("body").empty()
           $("body").append(data.body)
@@ -49,7 +49,6 @@ $(document).on 'turbolinks:load', ->
       success: ->
 
   $("#vote-finish").click (e) ->
-    console.log("Why is this even working")
     e.preventDefault()
     $.ajax
       url: '/rounds/' + roundID + '/finish_voting'
@@ -70,7 +69,8 @@ $(document).on 'turbolinks:load', ->
     $("#direction").animate {opacity: '0'}, 'slow', ->
       $("#direction").text("Click create and then share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!")
       $("#direction").animate {opacity: '100'}, 'slow'
-      $("#create-button").css('background-color', '#41A005').removeClass("dim").addClass('shadow')
-    $("#radius-div").css('background-color', 'black').addClass("dim")
+      $("#create-button").css('border', 'solid 2px #41A005').removeClass("dim")
+    $("#radius-div").css('border', 'solid 1px black').addClass("dim")
+
 
 
