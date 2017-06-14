@@ -1,6 +1,7 @@
 var gmarkers = [];
 var lat;
 var lng;
+var eventFired = false;
 
 $(document).on('turbolinks:load', function() {
   initMap();
@@ -17,7 +18,10 @@ function initMap() {
     placeMarkerAndPanTo(e.latLng, map);
     lat = e.latLng.lat().toFixed(6);
     lng = e.latLng.lng().toFixed(6);
-    instructionsChange();
+    if(eventFired === false){
+      instructionsChange();
+      eventFired = true;
+    }
   });
 }
 
@@ -39,9 +43,11 @@ function removeMarkers() {
 
 function instructionsChange() {
   $("#direction").animate({opacity: '0'}, 'slow', function() {
-      $("#direction").text("Choose the radius of your search")
+      $('#radius-div').show()
+      $('#create-button').show()
+      $("#direction").text("Choose the radius of your search and click create")
       $("#direction").animate({opacity: '100'}, 'slow')
-      $("#radius-div").css('border', 'solid 2px #41A005').animate({opacity: '100'}, 'slow')
+      $("#radius-div").animate({opacity: '100'}, 'slow')
   })
   $("#map").css('border', 'solid 5px black')
 
