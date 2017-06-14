@@ -17,9 +17,9 @@
   height: 100%;
 }*/
 
-/*body, html {
+body, html {
   min-height: 100%;
-}*/
+}
 
 /*Body Set*/
 body {
@@ -152,10 +152,10 @@ body {
 	color: white;
   letter-spacing: 2px;
   width: 40%;
-  height: 100%;
+  height: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
 }
 
 #welcome-message {
@@ -189,7 +189,7 @@ body {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    flex-flow: row;
+    flex-flow: row-reverse;
     border-bottom: 5px solid white;
     border-top: 5px solid white;
     align-items: center;
@@ -218,6 +218,11 @@ body {
   margin: 5px;
   text-align: center;
   padding: 10px;
+}
+
+#create-button {
+  /*border: solid 2px #41A005;*/
+  display: none;
 }
 
 .submit-button {
@@ -478,6 +483,9 @@ a:visited {
 }
 
 /*Dropdown Styling*/
+#radius-div {
+  display: none;
+}
 
 .styled-select {
    height: 29px;
@@ -509,12 +517,24 @@ a:visited {
   }
 }
 
-@media only screen and (max-height: 700px) and (orientation: landscape) {
-
-img {
-    max-width: 75%;
-    height: auto;
+/*@media only screen and (max-device-height: 700px) and (orientation: landscape) {*/
+@media only screen and (max-device-width: 800px) and (orientation: landscape){
+  /*.form-container {
+    flex-flow: row;
+  }*/
+  #welcome-message {
+    font-size: 36px;
   }
+
+  h1.center.header {
+    font-size: 50px;
+    width: 60%;
+  }
+
+  img {
+      max-width: 75%;
+      height: auto;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -532,10 +552,10 @@ img {
     letter-spacing: 30px;
   }
 
-  .form-container {
+ /* .form-container {
     display: flex;
     flex-flow: column-reverse;
-  }
+  }*/
 
   .game-instruction {
     width: 100%;
@@ -561,10 +581,14 @@ img {
 
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 800px) and (orientation: portrait) {
   .form-container {
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
+  }
+
+  #welcome-message {
+    font-size: 34px;
   }
 
   .restaurant-item {
