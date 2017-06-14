@@ -70,16 +70,15 @@ skip_before_action :verify_authenticity_token
 
   def finish_voting
     @round = Round.find(params[:id])
-    
+
     if session[:voted].nil?
       session[:voted] = true
       count = @round.finished_voting_count
       @round.update_attribute(:finished_voting_count, count + 1)
     end
-     
+
     new_count = @round.finished_voting_count
     total_users = @round.users.count
-    puts "reached asdf sdaf dsfoh asdlfjb sadlfjb asdf sadf"
     ActionCable.server.broadcast "rounds_channel_#{@round.id}",
                                   checked: true,
                                   finished_count: new_count,
