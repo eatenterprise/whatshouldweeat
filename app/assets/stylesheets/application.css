@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
-html {
+/*html {
   height: 100%;
-}
+}*/
 
-body {
+body, html {
   min-height: 100%;
 }
 
