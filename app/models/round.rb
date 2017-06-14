@@ -2,8 +2,8 @@
 
 class Round < ApplicationRecord
 
-  has_many :restaurants
-  has_many :users
+  has_many :restaurants, dependent: :destroy
+  has_many :users, dependent: :destroy
   validates :key, presence: true, uniqueness: true
 
   def self.makeKey
