@@ -20,13 +20,10 @@
 <div class="index-container">
   <div class="form-container">
     <div class='game-instruction'>
+
       <p class="hvr-underline-from-center" id="welcome-message">Welcome! To Kafood where indecision on where to eat is solved once and for all. </p>
-      <p class="hvr-underline-from-center" id="step1">1.) Drop a pin on the map in the area you plan to eat</p>
-      <p class="hvr-underline-from-center dim" id="step2">2.) Choose the radius of your search</p>
-      <p class="hvr-underline-from-center dim" id="step3">3.) Click create and then share the link with other people in your party. Once everyone has placed their votes click results find out where to eat.</p>
-    </div>
-    <div id="map"></div>
-        <div class="create-form">
+      <p class="hvr-underline-from-center" id="direction">Drop a pin on the map in the area you plan to eat</p>
+           <div class="create-form">
       <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
         <div class="styled-select dim" id="radius-div">
         <%= label_tag "Radius:" %>
@@ -35,6 +32,9 @@
         <%= submit_tag "Create", :class => "hvr-grow-shadow submit-button dim", :id => "create-button", data: {disable_with: false} %>
       <% end %>
     </div>
+    </div>
+    <div id="map"></div>
+
    </div>
 </div>
 
