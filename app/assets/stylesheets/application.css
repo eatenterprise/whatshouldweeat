@@ -345,6 +345,12 @@ body {
   margin-top: 5%;
 }
 
+#directions {
+  background-image: url('https://static1.squarespace.com/static/55d5c0e4e4b0be109fd8762f/t/55e8564ce4b02c708d4a99ff/1441289805237/');
+  height: 100%;
+  width: 100%;
+}
+
 #rating {
   color: red;
 }
@@ -529,6 +535,14 @@ img {
     overflow-wrap: break-word;
   }
 
+  .header{
+    width: 65%;
+  }
+
+  #link-copy {
+    width: 100%;
+  }
+
   .voted .restaurant-name {
     font-size: 24px;
     margin: 5px;
@@ -548,10 +562,12 @@ img {
   #map {
     width: 105%;
   }
-  
+
   #header-link {
   text-decoration: none;
   }
+
+
 }
 
 
