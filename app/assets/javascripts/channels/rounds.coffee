@@ -73,3 +73,4 @@ $(document).on 'turbolinks:load', ->
     $("#radius-div").css('border', 'solid 1px black').addClass("dim")
 
 
+
