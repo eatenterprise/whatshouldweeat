@@ -133,11 +133,22 @@ body {
 	color: white;
   letter-spacing: 2px;
   width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #welcome-message {
   font-size: 40px;
   text-align: center;
+  margin: 0;
+}
+
+#direction {
+  margin: 0;
+  color: #41A005;
+  font-size: 40px;
 }
 
 .form-container {
@@ -368,7 +379,8 @@ a:visited {
 #map {
   height: 550px;
   width: 55%;
-  border: solid 2px black;
+  border: solid 5px #41A005;
+  border-radius: 4px;
  }
 
 
@@ -458,6 +470,10 @@ a:visited {
   opacity: 0.3;
 }
 
+#header-link {
+  text-decoration: none;
+}
+
 /*Responsiveness Media Queries*/
 @media only screen and (max-height: 700px) and (orientation: portrait) {
 
@@ -492,6 +508,7 @@ img {
     display: flex;
     flex-direction: column;
   }
+
   .game-instruction {
     width: 100%;
   }
@@ -563,10 +580,10 @@ img {
     width: 105%;
   }
 
+
   #header-link {
   text-decoration: none;
   }
-
 
 }
 

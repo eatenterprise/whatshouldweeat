@@ -41,6 +41,8 @@ function instructionsChange() {
   $("#direction").animate({opacity: '0'}, 'slow', function() {
       $("#direction").text("Choose the radius of your search")
       $("#direction").animate({opacity: '100'}, 'slow')
+      $("#radius-div").css('background-color', '#41A005').animate({opacity: '100'}, 'slow')
   })
-  $("#radius-div").removeClass("dim")
+  $("#map").css('border', 'solid 5px black')
+
 }
