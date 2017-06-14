@@ -12883,7 +12883,7 @@ return jQuery;
         disconnected: function() {},
         received: function(data) {
           if (data.total_users != null) {
-            return $("#finished-users").text(data.finished_count + "/" + data.total_users + " voted");
+            return $("#finished-users").text(data.finished_count + "/" + (data.total_users - 1) + " voted");
           } else {
             $("body").empty();
             return $("body").append(data.body);
@@ -12941,7 +12941,6 @@ return jQuery;
       });
     });
     $("#vote-finish").click(function(e) {
-      console.log("Why is this even working");
       e.preventDefault();
       return $.ajax({
         url: '/rounds/' + roundID + '/finish_voting',
@@ -12952,7 +12951,7 @@ return jQuery;
         }
       });
     });
-    $("#results-link").click(function(e) {
+    return $("#results-link").click(function(e) {
       e.preventDefault();
       roundID = $("#round-results-btn").attr('data-round-id');
       return $.ajax({
@@ -12960,18 +12959,6 @@ return jQuery;
         method: 'get',
         success: function() {}
       });
-    });
-    return $("#radius").change(function() {
-      $("#direction").animate({
-        opacity: '0'
-      }, 'slow', function() {
-        $("#direction").text("Click create and then share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!");
-        $("#direction").animate({
-          opacity: '100'
-        }, 'slow');
-        return $("#create-button").css('background-color', '#41A005').removeClass("dim");
-      });
-      return $("#radius-div").css('background-color', 'black').addClass("dim");
     });
   });
 
@@ -12987,6 +12974,7 @@ function copyToClipboard(element) {
 var gmarkers = [];
 var lat;
 var lng;
+var eventFired = false;
 
 $(document).on('turbolinks:load', function() {
   initMap();
@@ -13003,7 +12991,10 @@ function initMap() {
     placeMarkerAndPanTo(e.latLng, map);
     lat = e.latLng.lat().toFixed(6);
     lng = e.latLng.lng().toFixed(6);
-    instructionsChange();
+    if(eventFired === false){
+      instructionsChange();
+      eventFired = true;
+    }
   });
 }
 
@@ -13025,9 +13016,11 @@ function removeMarkers() {
 
 function instructionsChange() {
   $("#direction").animate({opacity: '0'}, 'slow', function() {
-      $("#direction").text("Choose the radius of your search")
+      $('#radius-div').show()
+      $('#create-button').show()
+      $("#direction").text("Choose the radius of your search and click create")
       $("#direction").animate({opacity: '100'}, 'slow')
-      $("#radius-div").css('background-color', '#41A005').animate({opacity: '100'}, 'slow')
+      $("#radius-div").animate({opacity: '100'}, 'slow')
   })
   $("#map").css('border', 'solid 5px black')
 
