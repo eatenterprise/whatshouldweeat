@@ -2,6 +2,10 @@ var gmarkers = [];
 var lat;
 var lng;
 
+$(document).on('turbolinks:load', function() {
+  initMap();
+})
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
