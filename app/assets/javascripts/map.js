@@ -5,6 +5,7 @@ var eventFired = false;
 
 $(document).on('turbolinks:load', function() {
   initMap();
+  eventFired = false;
 })
 
 function initMap() {
