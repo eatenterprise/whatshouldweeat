@@ -544,10 +544,14 @@ img {
     font-size: 17px;
     margin-top: -20px;
   }
-}
 
-#header-link {
+  #map {
+    width: 105%;
+  }
+  
+  #header-link {
   text-decoration: none;
+  }
 }
 
 
