@@ -1,12 +1,13 @@
 class RoundsController < ApplicationController
-skip_before_action :verify_authenticity_token
+# skip_before_action :verify_authenticity_token
 
   def create
     location = {lat: params[:lat], lng: params[:lng], radius: params[:radius]}
-    round_key = Round.makeKey
-    round = Round.new(key: round_key)
+    round = Round.create
     session[:creator] = true
     if location && round.save
+      short_url = helpers.shorten_url("whatshouldweeat.herokuapp.com/rounds/#{round.id}")
+      round.update_attribute(:key, short_url)
       helpers.get_restaurants(round, location)
       if round.restaurants.length > 0
         redirect_to round
