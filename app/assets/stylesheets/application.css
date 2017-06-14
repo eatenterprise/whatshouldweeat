@@ -49,10 +49,23 @@ body {
 	color: yellow;
 }
 
+.shadow {
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+   -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
 .header {
 	font-family: 'Bungee Shade';
 	font-size: 70px;
 	color: white;
+  text-shadow:
+   -1px -1px 0 #FFFFFF,
+    1px -1px 0 #FFFFFF,
+   -1px 1px 0 #FFFFFF,
+    1px 1px 0 #FFFFFF;
 }
 
 /*Header Motions*/
@@ -140,15 +153,23 @@ body {
 }
 
 #welcome-message {
-  font-size: 40px;
+  font-size: 50px;
   text-align: center;
   margin: 0;
+  color: white;
+  font-family: 'Cuprum';
+  text-shadow:
+   -2px -2px 0 #000,
+    2px -2px 0 #000,
+   -2px 2px 0 #000,
+    2px 2px 0 #000;
 }
 
 #direction {
   margin: 0;
   color: #41A005;
   font-size: 40px;
+  text-align: center;
 }
 
 .form-container {
@@ -326,12 +347,16 @@ body {
   display: flex;
   align-content: center;
   justify-content: center;
+  background-image: url('https://media.giphy.com/media/aNTlWv7uS78C4/source.gif');
+  background-size: contain;
+  background-repeat: repeat-x;
 }
 
 #winner-name{
   font: 400 100px 'Lobster Two', Helvetica, sans-serif;
   color: black;
   text-shadow: 5px 5px 2px white, 4px 4px 0px rgba(255,255,255, 0.9);
+  text-align: center;
 }
 
 #winner-website {
@@ -350,11 +375,6 @@ body {
   margin-top: 20px;
 }
 
-#winner {
-  color: white;
-  font-size: 30px;
-  margin-top: 5%;
-}
 
 #directions {
   background-image: url('https://static1.squarespace.com/static/55d5c0e4e4b0be109fd8762f/t/55e8564ce4b02c708d4a99ff/1441289805237/');
@@ -372,7 +392,7 @@ a:link {
   color: white;
 }
 a:visited {
-  color: lightblue;
+  color: black;
 }
 
 /*Google Maps*/
@@ -506,7 +526,7 @@ img {
   }
   .form-container {
     display: flex;
-    flex-direction: column;
+    flex-flow: column-reverse;
   }
 
   .game-instruction {
@@ -515,6 +535,7 @@ img {
 
   #map {
     width: 70%;
+    flex: none;
   }
   .restaurant-item {
     width: 200px;

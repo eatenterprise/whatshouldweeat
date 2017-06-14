@@ -70,7 +70,7 @@ $(document).on 'turbolinks:load', ->
     $("#direction").animate {opacity: '0'}, 'slow', ->
       $("#direction").text("Click create and then share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!")
       $("#direction").animate {opacity: '100'}, 'slow'
-      $("#create-button").css('background-color', '#41A005').removeClass("dim")
+      $("#create-button").css('background-color', '#41A005').removeClass("dim").addClass('shadow')
     $("#radius-div").css('background-color', 'black').addClass("dim")
 
 
