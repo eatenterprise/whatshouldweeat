@@ -11,10 +11,11 @@
   <% end %>
 </div>
 
+
+<p id="welcome-message">Welcome! To Kafood where indecision on where to eat is solved once and for all. </p>
 <div class="index-container">
   <div class="form-container">
     <div class='game-instruction'>
-      <p id="welcome-message">Welcome! To Kafood where indecision on where to eat is solved once and for all. </p>
       <p id="direction">Drop a pin on the map in the area you plan to eat</p>
       <div class="create-form">
         <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
