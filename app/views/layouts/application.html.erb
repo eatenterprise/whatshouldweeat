@@ -30,7 +30,9 @@ function initMap() {
 
   <body>
     <header>
-      <h1 class="center header"><span class="main-title"> Kafood</span> </h1>
+      <h1 class="center header">
+        <span class="main-title"> <%= link_to 'Kafood', root_path, id: 'header-link' %></span>
+      </h1>
     </header>
     <h1>
       <% flash.each do |k, v| %>

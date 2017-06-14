@@ -13,7 +13,7 @@ function initMap() {
     placeMarkerAndPanTo(e.latLng, map);
     lat = e.latLng.lat().toFixed(6);
     lng = e.latLng.lng().toFixed(6);
-    instructionsOpacity();
+    instructionsChange();
   });
 }
 
@@ -33,8 +33,10 @@ function removeMarkers() {
   }
 }
 
-function instructionsOpacity() {
-  $("#step1").addClass("dim")
-  $("#step2").removeClass("dim")
+function instructionsChange() {
+  $("#direction").animate({opacity: '0'}, 'slow', function() {
+      $("#direction").text("Choose the radius of your search")
+      $("#direction").animate({opacity: '100'}, 'slow')
+  })
   $("#radius-div").removeClass("dim")
 }

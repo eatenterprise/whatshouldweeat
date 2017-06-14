@@ -1,4 +1,4 @@
-require 'securerandom'
+# require 'securerandom'
 
 class Round < ApplicationRecord
 
@@ -7,8 +7,8 @@ class Round < ApplicationRecord
   validates :key, presence: true, uniqueness: true
 
   def self.makeKey
-    # (0...4).map { ('a'..'z').to_a[rand(26)] }.join
-    SecureRandom.urlsafe_base64(3)
+    (0...5).map { ('A'..'Z').to_a[rand(26)] }.join
+    # SecureRandom.urlsafe_base64(3)
   end
 
   def vote_url
