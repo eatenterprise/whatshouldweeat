@@ -2,27 +2,13 @@ var gmarkers = [];
 var lat, lng, currentLat, currentLng;
 
 $(document).on('turbolinks:load', function() {
-  getLocation();
-  // initMap();
+  initMap();
 })
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(initMap)
-  }
-}
-
-// function getCoord(position) {
-//   currentlat = position.coords.latitude;
-//   currentlng = position.coords.longitude;
-// }
-
 function initMap(position) {
-  currentLat = position.coords.latitude;
-  currentLng = position.coords.longitude;
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
-    center: {lat: currentLat, lng: currentLng }
+    center: {lat: 32.7153716, lng: -117.1581770 }
   });
 
   map.addListener('click', function(e) {
