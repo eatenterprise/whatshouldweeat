@@ -22,17 +22,17 @@ skip_before_action :verify_authenticity_token
   end
 
   def show
-    if session[:user_id].nil?
-      @user = User.create(name: 'abc', round_id: params[:id])
-      session[:user_id] = @user.id
-    else
-      @user = User.find(session[:user_id])
-    end
     @round = Round.find(params[:id])
     if @round.completed
       @winner = @round.restaurants.find_by(winner: :true)
       render 'results'
     else
+      if session[:user_id].nil?
+        @user = User.create(name: 'abc', round_id: params[:id])
+        session[:user_id] = @user.id
+      else
+        @user = User.find(session[:user_id])
+      end
       render 'show'
     end
   end
@@ -65,6 +65,8 @@ skip_before_action :verify_authenticity_token
     @winner_page = render 'rounds/results', locals: { winner: @winner }
     ActionCable.server.broadcast "rounds_channel_#{@round.id}",
                                   body: @winner_page
+    @round.users.each{|u| u.destroy}
+    @round.restaurants.where(winner: nil).each{ |r| r.destroy}
   end
 
   def finish_voting
