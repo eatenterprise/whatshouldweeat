@@ -24,7 +24,7 @@ $(document).on 'turbolinks:load', ->
     $that = $(this)
     restaurantId = $that.attr('data-restaurant-id')
     roundId = $that.attr('data-round-id')
-    name = $that.find('p').first().text()
+    name = $that.find('div').first().text()
     $.ajax
       url: '/rounds/' + roundId + '/restaurants/' + restaurantId,
       method: 'put',
@@ -58,12 +58,6 @@ $(document).on 'turbolinks:load', ->
         $("#vote-finish").prop('value', "Votes submitted!")
         $("#vote-finish").removeClass('hvr-grow-shadow').css('background-color', 'green')
 
-
-
-
-
-
-
   $("#results-link").click (e) ->
     e.preventDefault()
     roundID = $("#round-results-btn").attr('data-round-id')
@@ -73,8 +67,9 @@ $(document).on 'turbolinks:load', ->
       success: ->
 
   $("#radius").change ->
-    $("#step2").addClass("dim")
-    $("#step3").removeClass("dim")
+    $("#direction").animate {opacity: '0'}, 'slow', ->
+      $("#direction").text("Click create and then share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!")
+      $("#direction").animate {opacity: '100'}, 'slow'
     $("#radius-div").addClass("dim")
     $("#create-button").removeClass("dim")
 
