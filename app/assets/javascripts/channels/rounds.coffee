@@ -49,7 +49,6 @@ $(document).on 'turbolinks:load', ->
       success: ->
 
   $("#vote-finish").click (e) ->
-    console.log("Why is this even working")
     e.preventDefault()
     $.ajax
       url: '/rounds/' + roundID + '/finish_voting'
