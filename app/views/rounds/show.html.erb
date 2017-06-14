@@ -1,10 +1,10 @@
 <% if session[:creator] %>
-<div class="link-container">
-  <div id="game-key" data-round-id="<%= @round.id %>">
-    <div>Game Link: <span class="hvr-underline-from-center" id='link'><%= @round.vote_url[0..-6] %><span id="game-id"><%= @round.vote_url[-5..-1] %></span></div></span>
+  <div class="link-container">
+    <div id="game-key" data-round-id="<%= @round.id %>">
+      <div>Game Link: <span class="hvr-underline-from-center" id='link'><%= @round.vote_url[0..-6] %><span id="game-id"><%= @round.vote_url[-5..-1] %></span></div></span>
+    </div>
+    <button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
   </div>
-  <button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
-</div>
 <% end %>
 
 
@@ -15,22 +15,22 @@
 <% if !session[:creator] %>
   <div id='finish-vote'>
     <%= form_tag({controller: "rounds", action: "finish_voting"}, method: "put", id: 'vote-check') do %>
-    <% if !session[:voted].nil? %>
-    <%= submit_tag 'click here when finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow', disabled: true %>
-    <% else %>
-    <%= submit_tag 'click here when finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow' %>
-    <% end %>
+      <% if !session[:voted].nil? %>
+        <%= submit_tag 'click here when finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow', disabled: true %>
+      <% else %>
+        <%= submit_tag 'click here when finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow' %>
+      <% end %>
     <% end %>
   </div>
 <% end %>
 
 <% if session[:creator] %>
-<div id='creators-dashboard-container'>
-<div id='creators-dashboard'>
-  <div id="round-results-btn" class="submit-button" data-round-id="<%= @round.id %>">
-    <%= link_to 'Results', "/rounds/#{@round.id}/results", id: 'results-link' %>
+  <div id='creators-dashboard-container'>
+    <div id='creators-dashboard'>
+      <div id="round-results-btn" class="submit-button" data-round-id="<%= @round.id %>">
+        <%= link_to 'Results', "/rounds/#{@round.id}/results", id: 'results-link' %>
+      </div>
+      <span id='finished-users' class="submit-button">0</span>
+    </div>
   </div>
-  <span id='finished-users' class="submit-button">0</span>
-</div>
-</div>
 <% end %>
