@@ -1,11 +1,15 @@
 <% if session[:creator] %>
+  <p id="invite-info">Share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!</p>
   <div class="link-container">
     <div id="game-key" data-round-id="<%= @round.id %>">
       <span class="hvr-underline-from-center" id='link-key'>Share This Link: <span id='link'>goo.gl/<span id='key'><%= "#{@round.key[-6..-1]}" %></span></span>
     </div>
     <button id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
   </div>
+<% else %>
+  <p id="invite-info">Select all the restaurants you would like to eat at then click finished voting</p>
 <% end %>
+
 
 
 <div id='container' data-round-id="<%= @round.id %>" data-user-id="<%= @user.id %>" lat-id=>
@@ -16,9 +20,9 @@
   <div id='finish-vote'>
     <%= form_tag({controller: "rounds", action: "finish_voting"}, method: "put", id: 'vote-check') do %>
       <% if !session[:voted].nil? %>
-        <%= submit_tag 'click here when finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow', disabled: true %>
+        <%= submit_tag 'finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow', disabled: true %>
       <% else %>
-        <%= submit_tag 'click here when finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow' %>
+        <%= submit_tag 'finished voting', id: 'vote-finish', class: 'submit-button hvr-grow-shadow' %>
       <% end %>
     <% end %>
   </div>
