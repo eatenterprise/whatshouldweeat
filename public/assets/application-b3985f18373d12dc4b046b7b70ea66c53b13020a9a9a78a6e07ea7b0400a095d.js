@@ -12975,15 +12975,17 @@ var gmarkers = [];
 var lat;
 var lng;
 var eventFired = false;
+var lat, lng;
 
 $(document).on('turbolinks:load', function() {
   initMap();
+  eventFired = false;
 })
 
-function initMap() {
+function initMap(position) {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
-    center: {lat: 32.7156, lng: -117.1581 }
+    center: {lat: 32.7153716, lng: -117.1581770 }
   });
 
   map.addListener('click', function(e) {
