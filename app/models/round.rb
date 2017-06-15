@@ -4,7 +4,6 @@ class Round < ApplicationRecord
 
   has_many :restaurants, dependent: :destroy
   has_many :users, dependent: :destroy
-  validates :key, presence: true, uniqueness: true
 
   def self.makeKey
     (0...5).map { ('A'..'Z').to_a[rand(26)] }.join
