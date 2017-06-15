@@ -67,10 +67,24 @@ $(document).on 'turbolinks:load', ->
 
   $("#radius").change ->
     $("#direction").animate {opacity: '0'}, 'slow', ->
-      $("#direction").text("Click create and then share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!")
+      $("#direction").text("Click create")
       $("#direction").animate {opacity: '100'}, 'slow'
       $("#create-button").css('border', 'solid 2px #41A005').removeClass("dim")
     $("#radius-div").css('border', 'solid 1px black').addClass("dim")
+
+
+  $(".text-btn").click (e) ->
+    e.preventDefault()
+    roundID = $("#round-results-btn").attr('data-round-id')
+    data = $(".phone-number").serialize()
+    $.ajax
+      url: '/rounds/' + roundID + '/send_text'
+      method: 'post'
+      data: data
+      success: ->
+    $('.phone-number').val('')
+
+
 
 
 

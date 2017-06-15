@@ -31,6 +31,7 @@ gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rest-client'
 gem 'dotenv'
+gem 'twilio-ruby'
 
 group :production do
   gem 'rails_12factor'

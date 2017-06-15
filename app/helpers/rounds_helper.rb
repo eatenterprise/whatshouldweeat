@@ -37,4 +37,27 @@ module RoundsHelper
       Restaurant.create(name: restaurant["name"], rating: restaurant["rating"], price: restaurant["price_level"], address: restaurant["vicinity"], round_id: round.id)
     end
   end
+
+
+  def clean_phone(number)
+    phone = number.scan(/\d+/).join
+    phone[0] == "1" ? number[0] = "" : number
+    phone unless phone.length != 10
+  end
+
+
+  def send_sms(number, body)
+    acct_sid = ENV['TWILIO_ACCT_SID']
+    auth_token = ENV['TWILIO_AUTH']
+
+    @client = Twilio::REST::Client.new acct_sid, auth_token
+    from = '+13072018936'
+
+    message = @client.account.messages.create(
+      :from => from,
+      :to => '+1'+ number,
+      :body => body
+      )
+  end
+
 end

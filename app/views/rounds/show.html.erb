@@ -1,9 +1,19 @@
 <% if session[:creator] %>
+ <p id="invite-info">Share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!</p>
   <div class="link-container">
     <div id="game-key" data-round-id="<%= @round.id %>">
       <div>Game Link: <span class="hvr-underline-from-center" id='link'><%= @round.vote_url[0..-6] %><span id="game-id"><%= @round.vote_url[-5..-1] %></span></div></span>
     </div>
-    <button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
+    <div><button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button></div>
+    <div id="or"> - OR - </div>
+      <div>
+        <%= form_for @round, url: "/rounds/#{@round.id}/send_text", method: 'Post' do |f| %>
+        <%= f.label :phone, {class: 'phone-label'} %>
+        <%= f.telephone_field :phone,  {class: 'phone-number'} %>
+        <%= f.submit "Send Text", class: "hvr-grow-shadow text-btn" %>
+        <% end %>
+      </div>
+   </div>
   </div>
 <% end %>
 
@@ -34,3 +44,4 @@
     </div>
   </div>
 <% end %>
+<!-- and then share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating! -->

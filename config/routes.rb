@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'rounds/:id/results' => 'rounds#results'
   get ':key' => 'rounds#find_key'
   put '/rounds/:id/finish_voting' => 'rounds#finish_voting'
+  post '/rounds/:id/send_text' => 'rounds#send_text'
 end

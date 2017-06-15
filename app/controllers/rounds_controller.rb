@@ -84,4 +84,18 @@ skip_before_action :verify_authenticity_token
                                   finished_count: new_count,
                                   total_users: total_users
   end
+
+
+  def send_text
+    puts '*'*12
+    puts params[:round][:phone]
+    puts '*'*12
+    number = params[:round][:phone]
+    @round = Round.find(params[:id])
+    @round.update_attribute(:phone, number)
+    body = 'http://whatshouldweeat.herokuapp.com/' + @round.key
+    phone_number = helpers.clean_phone(@round.phone)
+    helpers.send_sms(phone_number, body)
+    redirect_to "rounds/#{@round.id}"
+  end
 end
