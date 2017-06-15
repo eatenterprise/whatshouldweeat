@@ -6,6 +6,7 @@ var lat, lng;
 
 $(document).on('turbolinks:load', function() {
   initMap();
+  eventFired = false;
 })
 
 function initMap(position) {
