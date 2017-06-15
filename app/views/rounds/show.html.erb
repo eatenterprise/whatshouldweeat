@@ -1,9 +1,9 @@
 <% if session[:creator] %>
   <div class="link-container">
     <div id="game-key" data-round-id="<%= @round.id %>">
-      <div>Game Link: <span class="hvr-underline-from-center" id='link'><%= @round.key %></span></div></span>
+      <span class="hvr-underline-from-center" id='link-key'>Share This Link: <span id='link'>goo.gl/<span id='key'><%= "#{@round.key[-6..-1]}" %></span></span>
     </div>
-    <button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
+    <button id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
   </div>
 <% end %>
 
