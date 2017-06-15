@@ -17,6 +17,12 @@ module RoundsHelper
   #   {lat: @lat, lng: @lng}
   # end
 
+  def shorten_url(url)
+    new_url = RestClient.post "https://www.googleapis.com/urlshortener/v1/url?key=#{ENV["GOOGLE_URL_TOKEN"]}", { "longUrl": url }.to_json, {content_type: 'application/json'}
+    new_url = JSON.parse(new_url)
+    new_url["id"]
+  end
+
   def valid_location?(location)
     !@location["status"] == "ZERO_RESULTS"
   end

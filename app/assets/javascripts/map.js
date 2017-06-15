@@ -1,15 +1,17 @@
 var gmarkers = [];
 var lat;
 var lng;
+var eventFired = false;
 
 $(document).on('turbolinks:load', function() {
   initMap();
+  eventFired = false;
 })
 
-function initMap() {
+function initMap(position) {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
-    center: {lat: 32.7156, lng: -117.1581 }
+    center: {lat: 32.7153716, lng: -117.1581770 }
   });
 
   map.addListener('click', function(e) {
@@ -17,7 +19,10 @@ function initMap() {
     placeMarkerAndPanTo(e.latLng, map);
     lat = e.latLng.lat().toFixed(6);
     lng = e.latLng.lng().toFixed(6);
-    instructionsChange();
+    if(eventFired === false){
+      instructionsChange();
+      eventFired = true;
+    }
   });
 }
 
@@ -39,9 +44,11 @@ function removeMarkers() {
 
 function instructionsChange() {
   $("#direction").animate({opacity: '0'}, 'slow', function() {
-      $("#direction").text("Choose the radius of your search")
+      $('#radius-div').show()
+      $('#create-button').show()
+      $("#direction").text("Choose the radius of your search and click create")
       $("#direction").animate({opacity: '100'}, 'slow')
-      $("#radius-div").css('border', 'solid 2px #41A005').animate({opacity: '100'}, 'slow')
+      $("#radius-div").animate({opacity: '100'}, 'slow')
   })
   $("#map").css('border', 'solid 5px black')
 

@@ -11,22 +11,23 @@
   <% end %>
 </div>
 
+
+<p id="welcome-message">Welcome! To Kafood where indecision on where to eat is solved once and for all. </p>
 <div class="index-container">
   <div class="form-container">
+    <div id="map"></div>
     <div class='game-instruction'>
-      <p id="welcome-message">Welcome! To Kafood where indecision on where to eat is solved once and for all. </p>
       <p id="direction">Drop a pin on the map in the area you plan to eat</p>
       <div class="create-form">
         <%= form_tag rounds_path, method: :post, id: :'start-form' do |f| %>
           <div class="styled-select dim" id="radius-div">
           <%= label_tag "Radius:" %>
-          <%= select_tag 'radius', "<option>Select radius</option><option>1/2 Mile</option><option>2 Miles</option><option>5 Miles</option><option>10 Miles</option>".html_safe %>
+          <%= select_tag 'radius', "<option>Select radius</option><option>1/2 Mile</option><option selected=\"selected\">2 Miles</option><option>5 Miles</option><option>10 Miles</option>".html_safe %>
           </div>
-        <%= submit_tag "Create", :class => "hvr-grow-shadow submit-button dim", :id => "create-button", data: {disable_with: false} %>
+        <%= submit_tag "Create", :class => "hvr-grow-shadow submit-button", :id => "create-button", data: {disable_with: false} %>
       <% end %>
       </div>
     </div>
-    <div id="map"></div>
    </div>
 </div>
 

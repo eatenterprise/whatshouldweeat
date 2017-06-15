@@ -106,105 +106,6 @@
 
 
 
-/*Responsiveness Media Queries*/
-
-@media only screen and (max-height: 700px) and (orientation: portrait) {
-
- img {
-    max-width: 75%;
-    height: auto;
-  }
-}
-
-@media only screen and (max-height: 700px) and (orientation: landscape) {
-
-img {
-    max-width: 75%;
-    height: auto;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .header{
-    width: 80%;
-    margin-top: 10%
-  }
-}
-@media only screen and (max-width: 900px) {
-  .header{
-    width: 60%;
-    margin-top: 13%;
-    font-size: 50px;
-    letter-spacing: 30px;
-  }
-  .form-container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .game-instruction {
-    width: 100%;
-  }
-
-  #map {
-    width: 70%;
-  }
-  .restaurant-item {
-    width: 200px;
-    height: 200px;
-
-  }
-  .restaurant-name  {
-    margin-top: 25px;
-    font-size: 25px;
-  }
-
-  .restaurant-price .restaurant-item {
-    font-size: 15px;
-  }
-
-}
-
-@media only screen and (max-device-width: 480px) {
-  .restaurant-item {
-    width: 170px;
-    height: 170px;
-    margin: 20px;
-    background-size: 120%;
-    background-position: -20px -20px;
-    cursor: pointer;
-   }
-
-  .restaurant-name {
-    font-family: Arial;
-    font-size: 19px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin: 5px;
-    margin-top: 25px;
-    overflow-wrap: break-word;
-  }
-
-  .voted .restaurant-name {
-    font-size: 24px;
-    margin: 5px;
-    margin-top: 30px;
-  }
-
-  .restaurant-price {
-    font-size: 17px;
-    margin-top: -12px;
-  }
-
-  .restaurant-rating {
-    font-size: 17px;
-    margin-top: -20px;
-  }
-
-  #map {
-    width: 105%;
-  }
-}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -220,10 +121,16 @@ img {
 
 
  */
+/*html {
+  height: 100%;
+}*/
 
+
+body, html {
+  min-height: 100%;
+}
 
 /*Body Set*/
-
 body {
 	background-image: url('http://orizabeats.com/wp-content/uploads/2017/05/background.jpg');
   background-repeat: no-repeat;
@@ -257,10 +164,23 @@ body {
 	color: yellow;
 }
 
+.shadow {
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+   -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
 .header {
 	font-family: 'Bungee Shade';
 	font-size: 70px;
 	color: white;
+  text-shadow:
+   -1px -1px 0 #FFFFFF,
+    1px -1px 0 #FFFFFF,
+   -1px 1px 0 #FFFFFF,
+    1px 1px 0 #FFFFFF;
 }
 
 /*Header Motions*/
@@ -341,22 +261,30 @@ body {
 	color: white;
   letter-spacing: 2px;
   width: 40%;
-  height: 100%;
+  height: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
 }
 
 #welcome-message {
-  font-size: 40px;
+  font-size: 50px;
   text-align: center;
   margin: 0;
+  color: white;
+  font-family: 'Cuprum';
+  text-shadow:
+   -2px -2px 0 #000,
+    2px -2px 0 #000,
+   -2px 2px 0 #000,
+    2px 2px 0 #000;
 }
 
 #direction {
   margin: 0;
   color: #41A005;
   font-size: 40px;
+  text-align: center;
 }
 
 .form-container {
@@ -370,7 +298,7 @@ body {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    flex-flow: row;
+    flex-flow: row-reverse;
     border-bottom: 5px solid white;
     border-top: 5px solid white;
     align-items: center;
@@ -399,6 +327,11 @@ body {
   margin: 5px;
   text-align: center;
   padding: 10px;
+}
+
+#create-button {
+  /*border: solid 2px #41A005;*/
+  display: none;
 }
 
 .submit-button {
@@ -489,7 +422,7 @@ body {
   /*margin: 20px;*/
   word-wrap: break-word;
   border-radius: 100%;
-  background-image:url('https://static1.squarespace.com/static/55d5c0e4e4b0be109fd8762f/t/55e8564ce4b02c708d4a99ff/1441289805237/');
+  background-image: url('https://static1.squarespace.com/static/55d5c0e4e4b0be109fd8762f/t/55e8564ce4b02c708d4a99ff/1441289805237/');
   background-size: 100%;
   cursor: pointer;
  }
@@ -534,12 +467,16 @@ body {
   display: flex;
   align-content: center;
   justify-content: center;
+  background-image: url('https://media.giphy.com/media/aNTlWv7uS78C4/source.gif');
+  background-size: contain;
+  background-repeat: repeat-x;
 }
 
 #winner-name{
   font: 400 100px 'Lobster Two', Helvetica, sans-serif;
   color: black;
   text-shadow: 5px 5px 2px white, 4px 4px 0px rgba(255,255,255, 0.9);
+  text-align: center;
 }
 
 #winner-website {
@@ -558,10 +495,11 @@ body {
   margin-top: 20px;
 }
 
-#winner {
-  color: white;
-  font-size: 30px;
-  margin-top: 5%;
+
+#directions {
+  background-image: url('https://static1.squarespace.com/static/55d5c0e4e4b0be109fd8762f/t/55e8564ce4b02c708d4a99ff/1441289805237/');
+  height: 100%;
+  width: 100%;
 }
 
 #rating {
@@ -574,7 +512,7 @@ a:link {
   color: white;
 }
 a:visited {
-  color: lightblue;
+  color: black;
 }
 
 /*Google Maps*/
@@ -636,7 +574,7 @@ a:visited {
 
 /*Submitted Vote*/
 .voted {
-  background-image: url(http://indiacompliances.com/wp-content/uploads/2017/02/o.png)
+  background-image: url(http://indiacompliances.com/wp-content/uploads/2017/02/o.png);
 }
 
 .voted .restaurant-name {
@@ -654,6 +592,9 @@ a:visited {
 }
 
 /*Dropdown Styling*/
+#radius-div {
+  display: none;
+}
 
 .styled-select {
    height: 29px;
@@ -676,6 +617,133 @@ a:visited {
   text-decoration: none;
 }
 
+/*Responsiveness Media Queries*/
+@media only screen and (max-height: 700px) and (orientation: portrait) {
 
+ img {
+    max-width: 75%;
+    height: auto;
+  }
+}
 
+/*@media only screen and (max-device-height: 700px) and (orientation: landscape) {*/
+@media only screen and (max-device-width: 800px) and (orientation: landscape){
+  /*.form-container {
+    flex-flow: row;
+  }*/
+  #welcome-message {
+    font-size: 36px;
+  }
 
+  h1.center.header {
+    font-size: 50px;
+    width: 60%;
+  }
+
+  img {
+      max-width: 75%;
+      height: auto;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header{
+    width: 80%;
+    margin-top: 10%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header{
+    width: 60%;
+    margin-top: 13%;
+    font-size: 50px;
+    letter-spacing: 30px;
+  }
+
+ /* .form-container {
+    display: flex;
+    flex-flow: column-reverse;
+  }*/
+
+  .game-instruction {
+    width: 100%;
+  }
+
+  #map {
+    width: 70%;
+    flex: none;
+  }
+  .restaurant-item {
+    width: 200px;
+    height: 200px;
+
+  }
+  .restaurant-name  {
+    margin-top: 25px;
+    font-size: 25px;
+  }
+
+  .restaurant-price .restaurant-item {
+    font-size: 15px;
+  }
+
+}
+
+@media only screen and (max-device-width: 800px) and (orientation: portrait) {
+  .form-container {
+    /*display: flex;*/
+    flex-direction: column;
+  }
+
+  #welcome-message {
+    font-size: 34px;
+  }
+
+  .restaurant-item {
+    width: 170px;
+    height: 170px;
+    margin: 20px;
+    background-size: 120%;
+    background-position: -20px -20px;
+    cursor: pointer;
+   }
+
+  .restaurant-name {
+    font-family: Arial;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 5px;
+    margin-top: 25px;
+    overflow-wrap: break-word;
+  }
+
+  .header{
+    width: 65%;
+  }
+
+  #link-copy {
+    width: 100%;
+  }
+
+  .voted .restaurant-name {
+    font-size: 24px;
+    margin: 5px;
+    margin-top: 30px;
+  }
+
+  .restaurant-price {
+    font-size: 17px;
+    margin-top: -12px;
+  }
+
+  .restaurant-rating {
+    font-size: 17px;
+    margin-top: -20px;
+  }
+
+  #map {
+    width: 105%;
+  }
+}

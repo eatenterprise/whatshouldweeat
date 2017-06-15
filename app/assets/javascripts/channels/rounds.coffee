@@ -49,7 +49,6 @@ $(document).on 'turbolinks:load', ->
       success: ->
 
   $("#vote-finish").click (e) ->
-    console.log("Why is this even working")
     e.preventDefault()
     $.ajax
       url: '/rounds/' + roundID + '/finish_voting'
@@ -66,11 +65,12 @@ $(document).on 'turbolinks:load', ->
       method: 'get'
       success: ->
 
-  $("#radius").change ->
-    $("#direction").animate {opacity: '0'}, 'slow', ->
-      $("#direction").text("Click create and then share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!")
-      $("#direction").animate {opacity: '100'}, 'slow'
-      $("#create-button").css('border', 'solid 2px #41A005').removeClass("dim")
-    $("#radius-div").css('border', 'solid 1px black').addClass("dim")
+  # $("#radius").change ->
+  #   $("#direction").animate {opacity: '0'}, 'slow', ->
+      # $("#direction").text("Click create and then share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!")
+      # $("#direction").animate {opacity: '100'}, 'slow'
+      # $("#create-button").css('border', 'solid 2px #41A005').removeClass("dim")
+    # $("#radius-div").css('border', 'solid 1px black').addClass("dim")
+
 
 
