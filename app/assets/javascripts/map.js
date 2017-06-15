@@ -2,7 +2,6 @@ var gmarkers = [];
 var lat;
 var lng;
 var eventFired = false;
-var lat, lng;
 
 $(document).on('turbolinks:load', function() {
   initMap();
