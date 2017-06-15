@@ -43,8 +43,6 @@ class RoundsController < ApplicationController
 
   def find_key
     @round = Round.find_by(key: params[:key])
-    # @user = User.create(name: params[:name], round_id: @round.id) if @round
-    # session[:user_id] = @user.id
     if @round
       redirect_to @round
     else
