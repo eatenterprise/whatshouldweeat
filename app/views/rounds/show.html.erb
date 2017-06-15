@@ -6,7 +6,7 @@
     </div>
     <div><button class="hvr-grow-shadow" id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button></div>
     <div id="or"> - OR - </div>
-      <div>
+      <div id="phone-form">
         <%= form_for @round, url: "/rounds/#{@round.id}/send_text", method: 'Post' do |f| %>
         <%= f.label :phone, {class: 'phone-label'} %>
         <%= f.telephone_field :phone,  {class: 'phone-number'} %>

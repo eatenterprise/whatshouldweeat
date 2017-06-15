@@ -301,10 +301,10 @@ body {
   background: black;
   letter-spacing: 3px;
   font-size: 20px;
-  width: 50%;
+  width: 100%;
   padding: 2px 6px 2px 6px;
   border: 4px solid white;
-  margin-left: 1%;
+  margin-left: 3%;
 
 }
 
@@ -625,14 +625,23 @@ img {
     flex-wrap: wrap;
   }
 
-
   #link-copy {
     margin-top: 5%;
   }
 
-  #or{
-    padding-left: 1px;
+
+
+  .edit_round {
+    margin-top: 1.5%;
   }
+
+  #phone-form{
+    max-width: 200px;
+  }
+
+  #or {
+   margin: 20px;
+ }
 
   #invite-info {
     font-size: 17px;
@@ -642,9 +651,6 @@ img {
     width: 65%;
   }
 
-  #link-copy {
-    width: 100%;
-  }
 
   .voted .restaurant-name {
     font-size: 24px;
