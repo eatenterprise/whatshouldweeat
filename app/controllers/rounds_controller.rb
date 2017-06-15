@@ -31,7 +31,14 @@ class RoundsController < ApplicationController
         @user = User.create(name: 'abc', round_id: params[:id])
         session[:user_id] = @user.id
       else
-        @user = User.find(session[:user_id])
+        @user = User.find_by(id: session[:user_id])
+        if @user
+          @user
+        else
+          @user = User.create(name: 'abc', round_id: params[:id])
+          session[:user_id] = @user.id
+          session[:voted] = nil
+        end
       end
       render 'show'
     end
