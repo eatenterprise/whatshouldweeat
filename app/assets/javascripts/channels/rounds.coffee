@@ -14,7 +14,8 @@ $(document).on 'turbolinks:load', ->
 
       received: (data) ->
         if data.total_users?
-          $("#finished-users").text("#{data.finished_count}/#{data.total_users - 1} voted")
+          total_users = Math.max(0, data.total_users - 1)
+          $("#finished-users").text("#{data.finished_count}/#{total_users} voted")
         else
           $("body").empty()
           $("body").append(data.body)

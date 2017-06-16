@@ -46,7 +46,7 @@ function instructionsChange() {
   $("#direction").animate({opacity: '0'}, 'slow', function() {
       $('#radius-div').show()
       $('#create-button').show()
-      $("#direction").text("Choose the radius of your search and click create")
+      $("#direction").text("Choose the distance and click continue")
       $("#direction").animate({opacity: '100'}, 'slow')
       $("#radius-div").animate({opacity: '100'}, 'slow')
   })

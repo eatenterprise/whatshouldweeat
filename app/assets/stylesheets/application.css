@@ -24,6 +24,7 @@ body, html {
 /*Body Set*/
 body {
 	background-image: url('http://orizabeats.com/wp-content/uploads/2017/05/background.jpg');
+  background-blend-mode: color-dodge;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -159,7 +160,7 @@ body {
 }
 
 #welcome-message {
-  font-size: 50px;
+  font-size: 60px;
   text-align: center;
   margin: 0;
   color: white;
@@ -266,6 +267,7 @@ body {
 .link-container {
   display: flex;
  /* width: 50%;*/
+ font-size: 30px;
   border: 1px solid white;
   justify-content: center;
   font-family: 'Cuprum';
@@ -280,7 +282,7 @@ body {
   word-wrap: break-word;
   text-align: center;
   letter-spacing: 2px;
-  font-size: 30px;
+  font-size: 50px;
   color: white;
 }
 
@@ -358,8 +360,9 @@ body {
 }
 
 .restaurant-price {
-  font-family: 'Bungee Shade';
-  font-size: 20px;
+  font-family: 'Arial';
+  letter-spacing: 5px;
+  font-size: 35px;
   font-weight: bold;
   color: #66ff66;
 }
@@ -445,7 +448,7 @@ a:visited {
 #map {
   height: 550px;
   width: 55%;
-  border: solid 5px #41A005;
+  border: solid 5px black;
   border-radius: 4px;
  }
 
@@ -671,5 +674,9 @@ a:visited {
 
   #map {
     width: 105%;
+  }
+
+  #game-key {
+    font-size: 30px;
   }
 }

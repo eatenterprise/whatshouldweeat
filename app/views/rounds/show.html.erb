@@ -2,7 +2,7 @@
   <p id="invite-info">Share the link with other people in your party. Once everyone has placed their votes, click results to find out where you're eating!</p>
   <div class="link-container">
     <div id="game-key" data-round-id="<%= @round.id %>">
-      <span class="hvr-underline-from-center" id='link-key'>Share This Link: <span id='link'>goo.gl/<span id='key'><%= "#{@round.key[-6..-1]}" %></span></span>
+      <span class="hvr-underline-from-center hvr-grow-shadow" id='link-key'>Share This Link: <span id='link'><span id='key'><%= "goo.gl/#{@round.key[-6..-1]}" %></span></span>
     </div>
     <button id="link-copy" onclick="copyToClipboard('#link')">Copy Link</button>
   </div>
